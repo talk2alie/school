@@ -12,11 +12,9 @@ public class WeekDayDriver {
 
         Employee employee = new Employee("Sarah", null, "Sanders", Gender.Female, MaritalStatus.Married, birthDate);
 
-        int age = employee.getAge();
+        EmployeeRecord record = new EmployeeRecord(employee, 35.50, 35);
 
-        System.out.println(employee);
-        System.out.println("Age: " + age);
-        System.out.println("Is Female: " + employee.isFemale());
-        System.out.println("Is Male: " + employee.isMale());        
+        System.out.println(record.getRate());
+        
     }
 }
