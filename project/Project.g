@@ -10,6 +10,7 @@ ELSE			:	'else';
 LET				:	'let';
 VAL				:	'val';
 BIND			:	'=';
+LESS			:	'<';
 IN				:	'in';
 END				:	'end';
 FUN				:	'fun';
@@ -21,7 +22,6 @@ LCURLY			:	'{';
 RCURLY			:	'}';
 NOT				:	'!';
 ASSIGN			:	':=';
-RELOP			:	'<' | '=';
 ADDOP			:	'+' | '-' | '|';
 MULOP			:	'*' | '/' | '&';
 TRUE			: 	'true';
@@ -39,7 +39,7 @@ expr			:	IF expr THEN expr ELSE expr
 					| NOT expr
 					| ID ASSIGN expr
 					| relexpr;
-relexpr			:	arithexpr (RELOP arithexpr)?;
+relexpr			:	arithexpr ((LESS |  arithexpr)?;
 arithexpr 		:	term (ADDOP term)*;
 term			:	factor (MULOP factor)*;
 factor			:	NUM
