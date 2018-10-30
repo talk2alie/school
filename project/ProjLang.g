@@ -1,4 +1,4 @@
-grammar Project;
+grammar ProjLang;
 
 fragment LETTER	:	'a'..'z' | 'A'..'Z';
 fragment DIGIT	:	'0'..'9';
@@ -30,7 +30,7 @@ ID				:	LETTER (LETTER | DIGIT)*;
 NUM				:	DIGIT+;
 WS				:	(' ' | '\t' | '\n' | '\r')+ { skip(); };
 
-input			:	expr SEMI;
+input			:	expr SEMI EOF;
 expr			:	IF expr THEN expr ELSE expr
 					| LET VAL ID BIND expr IN expr END
 					| LET FUN ID LPAREN ID RPAREN BIND expr IN expr END
@@ -39,7 +39,7 @@ expr			:	IF expr THEN expr ELSE expr
 					| NOT expr
 					| ID ASSIGN expr
 					| relexpr;
-relexpr			:	arithexpr ((LESS |  arithexpr)?;
+relexpr			:	arithexpr ((LESS | BIND) arithexpr)?;
 arithexpr 		:	term (ADDOP term)*;
 term			:	factor (MULOP factor)*;
 factor			:	NUM
