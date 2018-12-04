@@ -1,13 +1,13 @@
 fun listMin(l) = 
-    let fun listMin(nil, small) = small |
-            listMin(x::xs, small) = 
+    let fun listMin(nil, smallest) = smallest |
+            listMin(first::rest, smallest) = 
                 if 
-                    x < small 
+                    first < smallest 
                 then
-                    listMin(xs, x)
+                    listMin(rest, first)
                 else 
-                    listMin(xs, small)
+                    listMin(rest, smallest)
     in
         listMin(l, hd(l))
     end;
-        
+
