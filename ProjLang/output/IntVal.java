@@ -1,8 +1,8 @@
 public class IntVal extends Value {
     public final int value;
 
-    public IntVal(int _value) {
-        value = _value;
+    public IntVal(int value) {
+        this.value = value;
     }
 
     public String toString() {
