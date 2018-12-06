@@ -1,7 +1,5 @@
 grammar Expr;
 
-// Lexer specification
-
 fragment LETTER	:	'a'..'z' | 'A'..'Z';
 fragment DIGIT	:	'0'..'9';
 ID				:	LETTER (LETTER | DIGIT)*;
@@ -14,8 +12,9 @@ LPAR				:	'(';
 RPAR				:	')';
 WS				:	(' ' | '\t' | '\n' | '\r')+ { skip(); };
 
-// Parser specification
-input			:	expr EOF	;
+
+input	returns [Expr value]			
+				:	expr {$value = $expr.value;} EOF	;
 expr		returns [Expr value]
 				:   left=term {$value = $left.value;} (ADD right=term {$value = new PlusExpr($left.value, $right.value);} 
 					| SUB right=term {$value = new MinusExpr($left.value, $right.value);})*; 
