@@ -1,4 +1,4 @@
-public class NumExpr implements Expr {
+public class NumExpr extends Expr {
     private final int value;
 
     public NumExpr(int value) {

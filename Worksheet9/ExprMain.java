@@ -4,9 +4,10 @@ public class ExprMain {
         Expr two = new NumExpr(2);
         Expr three = new NumExpr(3);
 
-        Expr plus = new PlusExpr(one, two);
-        Expr times = new TimesExpr(plus, three);
+        Expr times = new TimesExpr(two, three);
+        Expr plus = new PlusExpr(one, times);
+        
 
-        System.out.println(times.eval());
+        System.out.println(plus.eval());
     }
 }

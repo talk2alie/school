@@ -1,4 +1,4 @@
-public class TimesExpr implements Expr {
+public class TimesExpr extends Expr {
     private final Expr left;
     private final Expr right;
 

@@ -1,4 +1,4 @@
-public class PlusExpr implements Expr {
+public class PlusExpr extends Expr {
     private final Expr left;
     private final Expr right;
 

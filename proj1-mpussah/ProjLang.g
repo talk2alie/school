@@ -3,14 +3,14 @@ grammar ProjLang;
 fragment LETTER	:	'a'..'z' | 'A'..'Z';
 fragment DIGIT	:	'0'..'9';
 
-SEMI			:	';';
+SEMI				:	';';
 IF				:	'if';
-THEN			:	'then';
-ELSE			:	'else';
+THEN				:	'then';
+ELSE				:	'else';
 LET				:	'let';
 VAL				:	'val';
-BIND			:	'=';
-LESS			:	'<';
+BIND				:	'=';
+LESS				:	'<';
 IN				:	'in';
 END				:	'end';
 FUN				:	'fun';
@@ -24,14 +24,14 @@ NOT				:	'!';
 ASSIGN			:	':=';
 ADDOP			:	'+' | '-' | '|';
 MULOP			:	'*' | '/' | '&';
-TRUE			: 	'true';
+TRUE				: 	'true';
 FALSE			:	'false';
 ID				:	LETTER (LETTER | DIGIT)*;
 NUM				:	DIGIT+;
 WS				:	(' ' | '\t' | '\n' | '\r')+ { skip(); };
 
 input			:	expr SEMI EOF;
-expr			:	IF expr THEN expr ELSE expr
+expr				:	IF expr THEN expr ELSE expr
 					| LET VAL ID BIND expr IN expr END
 					| LET FUN ID LPAREN ID RPAREN BIND expr IN expr END
 					| WHILE expr DO expr
@@ -41,7 +41,7 @@ expr			:	IF expr THEN expr ELSE expr
 					| relexpr;
 relexpr			:	arithexpr ((LESS | BIND) arithexpr)?;
 arithexpr 		:	term (ADDOP term)*;
-term			:	factor (MULOP factor)*;
+term				:	factor (MULOP factor)*;
 factor			:	NUM
 					| TRUE
 					| FALSE
