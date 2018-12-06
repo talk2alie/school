@@ -1,4 +1,9 @@
 public class UnboundVar extends EvalError {
-    UnboundVar() { super(); }
-    UnboundVar(String s) { super(s); }
+    public UnboundVar() {
+        super();
+    }
+
+    public UnboundVar(String s) {
+        super(s);
+    }
 }
