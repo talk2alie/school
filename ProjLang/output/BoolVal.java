@@ -1,5 +1,5 @@
 public class BoolVal extends Value {
-    public final int value;
+    public final boolean value;
     
     public BoolVal(boolean value) {
         this.value = value;

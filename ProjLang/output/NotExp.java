@@ -1,19 +1,19 @@
 public class NotExp extends Expr {
-  public final Expr arg;
+  public final Expr expression;
 
-  public NotExp(Expr _arg) {
-    arg = _arg;
+  public NotExp(Expr expression) {
+    this.expression = expression;
   }
 
   public Value eval(Env e) throws EvalError {
-    Value v = arg.eval(e);
-    if (v instanceof BoolVal)
-      return new BoolVal(!((BoolVal) v).value);
+    Value value = expression.eval(e);
+    if (value instanceof BoolVal)
+      return new BoolVal(!((BoolVal) value).value);
     else
       throw new EvalError("Evaluation error: Incompatible arg types");
   }
 
   public String toString() {
-    return "!" + arg.toString();
+    return "!" + expression.toString();
   }
 }
