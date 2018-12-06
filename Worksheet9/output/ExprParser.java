@@ -1,12 +1,14 @@
-// $ANTLR null C:\\Repos\\school\\Worksheet9\\Expr.g 2018-12-06 16:41:33
+// $ANTLR null C:\\Repos\\school\\Worksheet9\\Expr.g 2018-12-06 16:50:59
 
 import org.antlr.runtime.*;
 import java.util.Stack;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.antlr.runtime.debug.*;
+import java.io.IOException;
 @SuppressWarnings("all")
-public class ExprParser extends Parser {
+public class ExprParser extends DebugParser {
 	public static final String[] tokenNames = new String[] {
 		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "ADD", "DIGIT", "DIV", "ID", "LETTER", 
 		"LPAR", "MUL", "NUM", "RPAR", "SUB", "WS"
@@ -32,11 +34,44 @@ public class ExprParser extends Parser {
 	// delegators
 
 
+	public static final String[] ruleNames = new String[] {
+		"invalidRule", "expr", "input", "factor", "term"
+	};
+
+	public static final boolean[] decisionCanBacktrack = new boolean[] {
+		false, // invalid decision
+		false, false
+	};
+
+ 
+	public int ruleLevel = 0;
+	public int getRuleLevel() { return ruleLevel; }
+	public void incRuleLevel() { ruleLevel++; }
+	public void decRuleLevel() { ruleLevel--; }
 	public ExprParser(TokenStream input) {
-		this(input, new RecognizerSharedState());
+		this(input, DebugEventSocketProxy.DEFAULT_DEBUGGER_PORT, new RecognizerSharedState());
 	}
-	public ExprParser(TokenStream input, RecognizerSharedState state) {
+	public ExprParser(TokenStream input, int port, RecognizerSharedState state) {
 		super(input, state);
+		DebugEventSocketProxy proxy =
+			new DebugEventSocketProxy(this, port, null);
+
+		setDebugListener(proxy);
+		try {
+			proxy.handshake();
+		}
+		catch (IOException ioe) {
+			reportError(ioe);
+		}
+	}
+
+	public ExprParser(TokenStream input, DebugEventListener dbg) {
+		super(input, dbg, new RecognizerSharedState());
+	}
+
+	protected boolean evalPredicate(boolean result, String predicate) {
+		dbg.semanticPredicate(result, predicate);
+		return result;
 	}
 
 	@Override public String[] getTokenNames() { return ExprParser.tokenNames; }
@@ -52,15 +87,23 @@ public class ExprParser extends Parser {
 
 		Expr expr1 =null;
 
+		try { dbg.enterRule(getGrammarFileName(), "input");
+		if ( getRuleLevel()==0 ) {dbg.commence();}
+		incRuleLevel();
+		dbg.location(16, 0);
+
 		try {
 			// C:\\Repos\\school\\Worksheet9\\Expr.g:17:5: ( expr EOF )
+			dbg.enterAlt(1);
+
 			// C:\\Repos\\school\\Worksheet9\\Expr.g:17:7: expr EOF
 			{
+			dbg.location(17,7);
 			pushFollow(FOLLOW_expr_in_input168);
 			expr1=expr();
 			state._fsp--;
-
-			value = expr1;
+			dbg.location(17,12);
+			value = expr1;dbg.location(17,36);
 			match(input,EOF,FOLLOW_EOF_in_input172); 
 			}
 
@@ -72,6 +115,15 @@ public class ExprParser extends Parser {
 		finally {
 			// do for sure before leaving
 		}
+		dbg.location(17, 39);
+
+		}
+		finally {
+			dbg.exitRule(getGrammarFileName(), "input");
+			decRuleLevel();
+			if ( getRuleLevel()==0 ) {dbg.terminate();}
+		}
+
 		return value;
 	}
 	// $ANTLR end "input"
@@ -87,19 +139,31 @@ public class ExprParser extends Parser {
 		Expr left =null;
 		Expr right =null;
 
+		try { dbg.enterRule(getGrammarFileName(), "expr");
+		if ( getRuleLevel()==0 ) {dbg.commence();}
+		incRuleLevel();
+		dbg.location(18, 0);
+
 		try {
 			// C:\\Repos\\school\\Worksheet9\\Expr.g:19:5: (left= term ( ADD right= term | SUB right= term )* )
+			dbg.enterAlt(1);
+
 			// C:\\Repos\\school\\Worksheet9\\Expr.g:19:9: left= term ( ADD right= term | SUB right= term )*
 			{
+			dbg.location(19,13);
 			pushFollow(FOLLOW_term_in_expr193);
 			left=term();
 			state._fsp--;
-
-			value = left;
+			dbg.location(19,19);
+			value = left;dbg.location(19,43);
 			// C:\\Repos\\school\\Worksheet9\\Expr.g:19:43: ( ADD right= term | SUB right= term )*
+			try { dbg.enterSubRule(1);
+
 			loop1:
 			while (true) {
 				int alt1=3;
+				try { dbg.enterDecision(1, decisionCanBacktrack[1]);
+
 				int LA1_0 = input.LA(1);
 				if ( (LA1_0==ADD) ) {
 					alt1=1;
@@ -108,26 +172,34 @@ public class ExprParser extends Parser {
 					alt1=2;
 				}
 
+				} finally {dbg.exitDecision(1);}
+
 				switch (alt1) {
 				case 1 :
+					dbg.enterAlt(1);
+
 					// C:\\Repos\\school\\Worksheet9\\Expr.g:19:44: ADD right= term
 					{
-					match(input,ADD,FOLLOW_ADD_in_expr198); 
+					dbg.location(19,44);
+					match(input,ADD,FOLLOW_ADD_in_expr198); dbg.location(19,53);
 					pushFollow(FOLLOW_term_in_expr202);
 					right=term();
 					state._fsp--;
-
+					dbg.location(19,59);
 					value = new PlusExpr(left, right);
 					}
 					break;
 				case 2 :
+					dbg.enterAlt(2);
+
 					// C:\\Repos\\school\\Worksheet9\\Expr.g:20:8: SUB right= term
 					{
-					match(input,SUB,FOLLOW_SUB_in_expr214); 
+					dbg.location(20,8);
+					match(input,SUB,FOLLOW_SUB_in_expr214); dbg.location(20,17);
 					pushFollow(FOLLOW_term_in_expr218);
 					right=term();
 					state._fsp--;
-
+					dbg.location(20,23);
 					value = new MinusExpr(left, right);
 					}
 					break;
@@ -136,6 +208,7 @@ public class ExprParser extends Parser {
 					break loop1;
 				}
 			}
+			} finally {dbg.exitSubRule(1);}
 
 			}
 
@@ -147,6 +220,15 @@ public class ExprParser extends Parser {
 		finally {
 			// do for sure before leaving
 		}
+		dbg.location(20, 76);
+
+		}
+		finally {
+			dbg.exitRule(getGrammarFileName(), "expr");
+			decRuleLevel();
+			if ( getRuleLevel()==0 ) {dbg.terminate();}
+		}
+
 		return value;
 	}
 	// $ANTLR end "expr"
@@ -162,19 +244,31 @@ public class ExprParser extends Parser {
 		NumExpr left =null;
 		NumExpr right =null;
 
+		try { dbg.enterRule(getGrammarFileName(), "term");
+		if ( getRuleLevel()==0 ) {dbg.commence();}
+		incRuleLevel();
+		dbg.location(21, 0);
+
 		try {
 			// C:\\Repos\\school\\Worksheet9\\Expr.g:22:5: (left= factor ( MUL right= factor | DIV right= factor )* )
+			dbg.enterAlt(1);
+
 			// C:\\Repos\\school\\Worksheet9\\Expr.g:22:10: left= factor ( MUL right= factor | DIV right= factor )*
 			{
+			dbg.location(22,14);
 			pushFollow(FOLLOW_factor_in_term247);
 			left=factor();
 			state._fsp--;
-
-			value = left;
+			dbg.location(22,22);
+			value = left;dbg.location(22,46);
 			// C:\\Repos\\school\\Worksheet9\\Expr.g:22:46: ( MUL right= factor | DIV right= factor )*
+			try { dbg.enterSubRule(2);
+
 			loop2:
 			while (true) {
 				int alt2=3;
+				try { dbg.enterDecision(2, decisionCanBacktrack[2]);
+
 				int LA2_0 = input.LA(1);
 				if ( (LA2_0==MUL) ) {
 					alt2=1;
@@ -183,26 +277,34 @@ public class ExprParser extends Parser {
 					alt2=2;
 				}
 
+				} finally {dbg.exitDecision(2);}
+
 				switch (alt2) {
 				case 1 :
+					dbg.enterAlt(1);
+
 					// C:\\Repos\\school\\Worksheet9\\Expr.g:22:47: MUL right= factor
 					{
-					match(input,MUL,FOLLOW_MUL_in_term252); 
+					dbg.location(22,47);
+					match(input,MUL,FOLLOW_MUL_in_term252); dbg.location(22,56);
 					pushFollow(FOLLOW_factor_in_term256);
 					right=factor();
 					state._fsp--;
-
+					dbg.location(22,64);
 					value = new TimesExpr(left, right);
 					}
 					break;
 				case 2 :
+					dbg.enterAlt(2);
+
 					// C:\\Repos\\school\\Worksheet9\\Expr.g:23:8: DIV right= factor
 					{
-					match(input,DIV,FOLLOW_DIV_in_term268); 
+					dbg.location(23,8);
+					match(input,DIV,FOLLOW_DIV_in_term268); dbg.location(23,17);
 					pushFollow(FOLLOW_factor_in_term272);
 					right=factor();
 					state._fsp--;
-
+					dbg.location(23,25);
 					value = new DivideExpr(left, right);
 					}
 					break;
@@ -211,6 +313,7 @@ public class ExprParser extends Parser {
 					break loop2;
 				}
 			}
+			} finally {dbg.exitSubRule(2);}
 
 			}
 
@@ -222,6 +325,15 @@ public class ExprParser extends Parser {
 		finally {
 			// do for sure before leaving
 		}
+		dbg.location(23, 79);
+
+		}
+		finally {
+			dbg.exitRule(getGrammarFileName(), "term");
+			decRuleLevel();
+			if ( getRuleLevel()==0 ) {dbg.terminate();}
+		}
+
 		return value;
 	}
 	// $ANTLR end "term"
@@ -236,11 +348,19 @@ public class ExprParser extends Parser {
 
 		Token NUM2=null;
 
+		try { dbg.enterRule(getGrammarFileName(), "factor");
+		if ( getRuleLevel()==0 ) {dbg.commence();}
+		incRuleLevel();
+		dbg.location(24, 0);
+
 		try {
 			// C:\\Repos\\school\\Worksheet9\\Expr.g:25:5: ( NUM )
+			dbg.enterAlt(1);
+
 			// C:\\Repos\\school\\Worksheet9\\Expr.g:25:10: NUM
 			{
-			NUM2=(Token)match(input,NUM,FOLLOW_NUM_in_factor294); 
+			dbg.location(25,10);
+			NUM2=(Token)match(input,NUM,FOLLOW_NUM_in_factor294); dbg.location(25,14);
 			value = new NumExpr(Integer.parseInt((NUM2!=null?NUM2.getText():null)));
 			}
 
@@ -252,6 +372,15 @@ public class ExprParser extends Parser {
 		finally {
 			// do for sure before leaving
 		}
+		dbg.location(25, 65);
+
+		}
+		finally {
+			dbg.exitRule(getGrammarFileName(), "factor");
+			decRuleLevel();
+			if ( getRuleLevel()==0 ) {dbg.terminate();}
+		}
+
 		return value;
 	}
 	// $ANTLR end "factor"
