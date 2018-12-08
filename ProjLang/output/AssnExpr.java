@@ -9,7 +9,8 @@ public class AssnExpr extends Expr{
 
     @Override
     public Value eval(Env e) throws EvalError {
-        Value value = valueExpression.eval(e);
+        Value value = e.lookup(id);
+        value = valueExpression.eval(e);
         e = e.updateBinding(id, value);
         return value;
     }

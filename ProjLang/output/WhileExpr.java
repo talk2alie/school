@@ -11,7 +11,7 @@ public class WhileExpr extends Expr {
     public Value eval(Env e) throws EvalError {
         boolean condition = evaluateBoolean(conditionExpression, e);
         while(condition) {
-            value = actionExpression.eval(e);
+            actionExpression.eval(e);
             condition = evaluateBoolean(conditionExpression, e);
         }
         return new BoolVal(false);

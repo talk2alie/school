@@ -7,8 +7,7 @@ public class VarExpr extends Expr {
 
     @Override
     public Value eval(Env e) throws EvalError {
-        Value val = e.lookup(id);
-        return val;
+        return e.lookup(id);
     }
 
     @Override
