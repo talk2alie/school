@@ -14,11 +14,16 @@ public class InterpretMain {
 		// } catch (Exception e) {
 		// 	System.out.println(e.getMessage());
 		// }
-		IntConst left = new IntConst(0);
-		IntConst right = new IntConst(0);
-		BinExpr expression = new BinExpr(left, BinOp.OR, right);
-		Env emptyEnv = new EnvImp();
-		Value result = expression.eval(emptyEnv);
+
+		Env env = new EnvImp();
+		// a + b;
+		env = env.addBinding("a", new IntVal(10));
+		env = env.addBinding("b", new IntVal(7));
+
+		VarExpr a = new VarExpr("a");
+		VarExpr b = new VarExpr("b");
+		BinExpr addition = new BinExpr(a, BinOp.DIV, b);
+		Value result = addition.eval(env);
 		System.out.println(result);
 	}
 }

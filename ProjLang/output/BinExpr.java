@@ -11,6 +11,7 @@ public class BinExpr extends Expr {
 
     // I do not like this implementation because it violates the OCP.
     // In the future, I will modify it to be better
+    @Override
     public Value eval(Env e) throws EvalError {
         switch (operation) {
             case AND:
@@ -20,7 +21,7 @@ public class BinExpr extends Expr {
             case DIV:
                     int divLeft = Integer.parseInt(left.eval(e).toString());
                     int divRight = Integer.parseInt(right.eval(e).toString());
-                    return new IntVal(divLeft - divRight);
+                    return new IntVal(divLeft / divRight);
             case EQ:
                     String eqLeft = left.eval(e).toString();
                     String eqRight = right.eval(e).toString();
@@ -44,12 +45,13 @@ public class BinExpr extends Expr {
             case TIMES:
                     int timesLeft = Integer.parseInt(left.eval(e).toString());
                     int timesRight = Integer.parseInt(right.eval(e).toString());
-                    return new IntVal(timesLeft + timesRight);
+                    return new IntVal(timesLeft * timesRight);
             default:
                 throw new EvalError("Operation is invalid");
         }
     }
 
+    @Override
     public String toString() {
         return left.toString() + " " + right.toString();
     }
