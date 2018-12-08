@@ -18,14 +18,19 @@ public class InterpretMain {
 		Env env = new EnvImp();
 		// a + b;
 		env = env.addBinding("a", new IntVal(10));
-		env = env.addBinding("b", new IntVal(7));
-
+		env = env.addBinding("b", new IntVal(17));
+		
 		VarExpr a = new VarExpr("a");
-		AssnExpr updatedA = new AssnExpr("a", new IntVal(3));
-		updatedA.eval(env);
 		VarExpr b = new VarExpr("b");
-		BinExpr addition = new BinExpr(a, BinOp.PLUS, b);
-		Value result = addition.eval(env);
+
+		BinExpr less = new BinExpr(a, BinOp.LT, b);
+
+		IntConst trueExpression = new IntConst(10);
+		IntConst falseExpression = new IntConst(20);
+		
+		IfExpr ifExpr = new IfExpr(less, trueExpression, falseExpression);
+
+		Value result = ifExpr.eval(env);
 		System.out.println(result);
 	}
 }
