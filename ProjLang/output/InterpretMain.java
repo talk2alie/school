@@ -19,7 +19,7 @@ public class InterpretMain {
 
 		VarExpr x = new VarExpr("x");
 		IntConst two = new IntConst(2);
-		IntConst five = new IntConst(5);
+		IntConst five = new IntConst(50);
 
 		BinExpr inExpression = new BinExpr(x, BinOp.TIMES, five);
 		LetValExpr letValExpr = new LetValExpr(x.id, two, inExpression);
