@@ -15,15 +15,5 @@ public class InterpretMain {
 		// 	System.out.println(e.getMessage());
 		// }
 
-		Env env = new EnvImp();
-
-		VarExpr x = new VarExpr("x");
-		IntConst two = new IntConst(2);
-		IntConst five = new IntConst(50);
-
-		BinExpr inExpression = new BinExpr(x, BinOp.TIMES, five);
-		LetValExpr letValExpr = new LetValExpr(x.id, two, inExpression);
-		Value value = letValExpr.eval(env);
-		System.out.println("Let Val Expr = " + value);
 	}
 }
