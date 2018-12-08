@@ -16,21 +16,39 @@ public class InterpretMain {
 		// }
 
 		Env env = new EnvImp();
-		// a + b;
-		env = env.addBinding("a", new IntVal(10));
-		env = env.addBinding("b", new IntVal(17));
+
 		
+		VarExpr i = new VarExpr("i");
+		env = env.addBinding(i.id, new IntVal(-1));
+
+		// Sequence Expression
+		AssnExpr assignI = new AssnExpr(i.id, new IntConst(0));
+		
+		// While Expression
 		VarExpr a = new VarExpr("a");
+		env = env.addBinding(a.id, new IntVal(0));
+
 		VarExpr b = new VarExpr("b");
+		env = env.addBinding(b.id, new IntVal(0));
 
-		BinExpr less = new BinExpr(a, BinOp.LT, b);
-
-		IntConst trueExpression = new IntConst(10);
-		IntConst falseExpression = new IntConst(20);
+		AssnExpr assnA = new AssnExpr(a.id, new BinExpr(i, BinOp.PLUS, new IntConst(5)));
+		AssnExpr assnB = new AssnExpr(b.id, new BinExpr(a, BinOp.PLUS, new IntConst(2)));
+		AssnExpr updateI = new AssnExpr(i.id, new BinExpr(i, BinOp.PLUS, new IntConst(1)));
 		
-		IfExpr ifExpr = new IfExpr(less, trueExpression, falseExpression);
+		BinExpr conditionExpression = new BinExpr(i, BinOp.LT, new IntConst(5));
+		SeqExpr actionExpression = new SeqExpr(assnA, assnB, updateI);
 
-		Value result = ifExpr.eval(env);
-		System.out.println(result);
+		WhileExpr whileExpr = new WhileExpr(conditionExpression, actionExpression);
+
+		SeqExpr appExpression = new SeqExpr(assignI, whileExpr);
+		Value result = appExpression.eval(env);
+		
+		Value iValue = env.lookup(i.id);
+		Value aValue = env.lookup(a.id);
+		Value bValue = env.lookup(b.id);
+
+		System.out.println("A: " + aValue);
+		System.out.println("B: " + bValue);
+		System.out.println("I: " + iValue);
 	}
 }
