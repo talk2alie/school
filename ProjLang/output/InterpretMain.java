@@ -21,8 +21,10 @@ public class InterpretMain {
 		env = env.addBinding("b", new IntVal(7));
 
 		VarExpr a = new VarExpr("a");
+		AssnExpr updatedA = new AssnExpr("a", new IntVal(3));
+		updatedA.eval(env);
 		VarExpr b = new VarExpr("b");
-		BinExpr addition = new BinExpr(a, BinOp.DIV, b);
+		BinExpr addition = new BinExpr(a, BinOp.PLUS, b);
 		Value result = addition.eval(env);
 		System.out.println(result);
 	}
