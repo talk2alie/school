@@ -21,6 +21,9 @@ public class BinExpr extends Expr {
             case DIV:
                     int divLeft = Integer.parseInt(left.eval(e).toString());
                     int divRight = Integer.parseInt(right.eval(e).toString());
+                    if(divRight == 0) {
+                        throw new EvalError("Divide by zero");
+                    }
                     return new IntVal(divLeft / divRight);
             case EQ:
                     String eqLeft = left.eval(e).toString();

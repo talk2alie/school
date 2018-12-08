@@ -10,12 +10,11 @@ public class WhileExpr extends Expr {
     @Override
     public Value eval(Env e) throws EvalError {
         boolean condition = evaluateBoolean(conditionExpression, e);
-        Value value = null;
         while(condition) {
             value = actionExpression.eval(e);
             condition = evaluateBoolean(conditionExpression, e);
         }
-        return value;
+        return new BoolVal(false);
     }
 
     private boolean evaluateBoolean(Expr expression, Env e) throws EvalError {
