@@ -1,4 +1,4 @@
-// $ANTLR null C:\\Repos\\school\\ProjLang\\ProjLang.g 2018-12-09 22:21:07
+// $ANTLR 3.5.1 D:\\Repos\\school\\ProjLang\\ProjLang.g 2018-12-10 16:24:04
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -50,13 +50,13 @@ public class ProjLangLexer extends Lexer {
 	public ProjLangLexer(CharStream input, RecognizerSharedState state) {
 		super(input,state);
 	}
-	@Override public String getGrammarFileName() { return "C:\\Repos\\school\\ProjLang\\ProjLang.g"; }
+	@Override public String getGrammarFileName() { return "D:\\Repos\\school\\ProjLang\\ProjLang.g"; }
 
 	// $ANTLR start "LETTER"
 	public final void mLETTER() throws RecognitionException {
 		try {
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:3:17: ( 'a' .. 'z' | 'A' .. 'Z' )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:3:17: ( 'a' .. 'z' | 'A' .. 'Z' )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:
 			{
 			if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
 				input.consume();
@@ -78,8 +78,8 @@ public class ProjLangLexer extends Lexer {
 	// $ANTLR start "DIGIT"
 	public final void mDIGIT() throws RecognitionException {
 		try {
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:4:16: ( '0' .. '9' )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:4:16: ( '0' .. '9' )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:
 			{
 			if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
 				input.consume();
@@ -103,8 +103,8 @@ public class ProjLangLexer extends Lexer {
 		try {
 			int _type = SEMI;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:6:9: ( ';' )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:6:11: ';'
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:6:9: ( ';' )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:6:11: ';'
 			{
 			match(';'); 
 			}
@@ -123,8 +123,8 @@ public class ProjLangLexer extends Lexer {
 		try {
 			int _type = IF;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:7:7: ( 'if' )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:7:9: 'if'
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:7:7: ( 'if' )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:7:9: 'if'
 			{
 			match("if"); 
 
@@ -144,8 +144,8 @@ public class ProjLangLexer extends Lexer {
 		try {
 			int _type = THEN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:8:9: ( 'then' )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:8:11: 'then'
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:8:9: ( 'then' )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:8:11: 'then'
 			{
 			match("then"); 
 
@@ -165,8 +165,8 @@ public class ProjLangLexer extends Lexer {
 		try {
 			int _type = ELSE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:9:9: ( 'else' )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:9:11: 'else'
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:9:9: ( 'else' )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:9:11: 'else'
 			{
 			match("else"); 
 
@@ -186,8 +186,8 @@ public class ProjLangLexer extends Lexer {
 		try {
 			int _type = LET;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:10:8: ( 'let' )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:10:10: 'let'
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:10:8: ( 'let' )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:10:10: 'let'
 			{
 			match("let"); 
 
@@ -207,8 +207,8 @@ public class ProjLangLexer extends Lexer {
 		try {
 			int _type = VAL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:11:8: ( 'val' )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:11:10: 'val'
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:11:8: ( 'val' )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:11:10: 'val'
 			{
 			match("val"); 
 
@@ -228,8 +228,8 @@ public class ProjLangLexer extends Lexer {
 		try {
 			int _type = BIND;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:12:9: ( '=' )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:12:11: '='
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:12:9: ( '=' )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:12:11: '='
 			{
 			match('='); 
 			}
@@ -248,8 +248,8 @@ public class ProjLangLexer extends Lexer {
 		try {
 			int _type = LESS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:13:9: ( '<' )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:13:11: '<'
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:13:9: ( '<' )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:13:11: '<'
 			{
 			match('<'); 
 			}
@@ -268,8 +268,8 @@ public class ProjLangLexer extends Lexer {
 		try {
 			int _type = IN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:14:7: ( 'in' )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:14:9: 'in'
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:14:7: ( 'in' )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:14:9: 'in'
 			{
 			match("in"); 
 
@@ -289,8 +289,8 @@ public class ProjLangLexer extends Lexer {
 		try {
 			int _type = END;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:15:8: ( 'end' )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:15:10: 'end'
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:15:8: ( 'end' )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:15:10: 'end'
 			{
 			match("end"); 
 
@@ -310,8 +310,8 @@ public class ProjLangLexer extends Lexer {
 		try {
 			int _type = FUN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:16:8: ( 'fun' )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:16:10: 'fun'
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:16:8: ( 'fun' )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:16:10: 'fun'
 			{
 			match("fun"); 
 
@@ -331,8 +331,8 @@ public class ProjLangLexer extends Lexer {
 		try {
 			int _type = LPAREN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:17:10: ( '(' )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:17:12: '('
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:17:10: ( '(' )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:17:12: '('
 			{
 			match('('); 
 			}
@@ -351,8 +351,8 @@ public class ProjLangLexer extends Lexer {
 		try {
 			int _type = RPAREN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:18:10: ( ')' )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:18:12: ')'
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:18:10: ( ')' )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:18:12: ')'
 			{
 			match(')'); 
 			}
@@ -371,8 +371,8 @@ public class ProjLangLexer extends Lexer {
 		try {
 			int _type = WHILE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:19:9: ( 'while' )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:19:11: 'while'
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:19:9: ( 'while' )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:19:11: 'while'
 			{
 			match("while"); 
 
@@ -392,8 +392,8 @@ public class ProjLangLexer extends Lexer {
 		try {
 			int _type = DO;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:20:7: ( 'do' )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:20:9: 'do'
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:20:7: ( 'do' )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:20:9: 'do'
 			{
 			match("do"); 
 
@@ -413,8 +413,8 @@ public class ProjLangLexer extends Lexer {
 		try {
 			int _type = LCURLY;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:21:10: ( '{' )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:21:12: '{'
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:21:10: ( '{' )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:21:12: '{'
 			{
 			match('{'); 
 			}
@@ -433,8 +433,8 @@ public class ProjLangLexer extends Lexer {
 		try {
 			int _type = RCURLY;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:22:10: ( '}' )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:22:12: '}'
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:22:10: ( '}' )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:22:12: '}'
 			{
 			match('}'); 
 			}
@@ -453,8 +453,8 @@ public class ProjLangLexer extends Lexer {
 		try {
 			int _type = NOT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:23:8: ( '!' )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:23:10: '!'
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:23:8: ( '!' )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:23:10: '!'
 			{
 			match('!'); 
 			}
@@ -473,8 +473,8 @@ public class ProjLangLexer extends Lexer {
 		try {
 			int _type = ASSIGN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:24:10: ( ':=' )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:24:12: ':='
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:24:10: ( ':=' )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:24:12: ':='
 			{
 			match(":="); 
 
@@ -494,8 +494,8 @@ public class ProjLangLexer extends Lexer {
 		try {
 			int _type = ADDOP;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:25:9: ( '+' | '-' | '|' )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:25:9: ( '+' | '-' | '|' )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:
 			{
 			if ( input.LA(1)=='+'||input.LA(1)=='-'||input.LA(1)=='|' ) {
 				input.consume();
@@ -521,8 +521,8 @@ public class ProjLangLexer extends Lexer {
 		try {
 			int _type = MULOP;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:26:9: ( '*' | '/' | '&' )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:26:9: ( '*' | '/' | '&' )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:
 			{
 			if ( input.LA(1)=='&'||input.LA(1)=='*'||input.LA(1)=='/' ) {
 				input.consume();
@@ -548,8 +548,8 @@ public class ProjLangLexer extends Lexer {
 		try {
 			int _type = TRUE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:27:9: ( 'true' )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:27:12: 'true'
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:27:9: ( 'true' )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:27:12: 'true'
 			{
 			match("true"); 
 
@@ -569,8 +569,8 @@ public class ProjLangLexer extends Lexer {
 		try {
 			int _type = FALSE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:28:9: ( 'false' )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:28:11: 'false'
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:28:9: ( 'false' )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:28:11: 'false'
 			{
 			match("false"); 
 
@@ -590,12 +590,12 @@ public class ProjLangLexer extends Lexer {
 		try {
 			int _type = ID;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:29:7: ( LETTER ( LETTER | DIGIT )* )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:29:9: LETTER ( LETTER | DIGIT )*
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:29:7: ( LETTER ( LETTER | DIGIT )* )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:29:9: LETTER ( LETTER | DIGIT )*
 			{
 			mLETTER(); 
 
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:29:16: ( LETTER | DIGIT )*
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:29:16: ( LETTER | DIGIT )*
 			loop1:
 			while (true) {
 				int alt1=2;
@@ -606,7 +606,7 @@ public class ProjLangLexer extends Lexer {
 
 				switch (alt1) {
 				case 1 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:
+					// D:\\Repos\\school\\ProjLang\\ProjLang.g:
 					{
 					if ( (input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
 						input.consume();
@@ -640,10 +640,10 @@ public class ProjLangLexer extends Lexer {
 		try {
 			int _type = NUM;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:30:8: ( ( DIGIT )+ )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:30:10: ( DIGIT )+
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:30:8: ( ( DIGIT )+ )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:30:10: ( DIGIT )+
 			{
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:30:10: ( DIGIT )+
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:30:10: ( DIGIT )+
 			int cnt2=0;
 			loop2:
 			while (true) {
@@ -655,7 +655,7 @@ public class ProjLangLexer extends Lexer {
 
 				switch (alt2) {
 				case 1 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:
+					// D:\\Repos\\school\\ProjLang\\ProjLang.g:
 					{
 					if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
 						input.consume();
@@ -692,10 +692,10 @@ public class ProjLangLexer extends Lexer {
 		try {
 			int _type = WS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:31:7: ( ( ' ' | '\\t' | '\\n' | '\\r' )+ )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:31:9: ( ' ' | '\\t' | '\\n' | '\\r' )+
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:31:7: ( ( ' ' | '\\t' | '\\n' | '\\r' )+ )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:31:9: ( ' ' | '\\t' | '\\n' | '\\r' )+
 			{
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:31:9: ( ' ' | '\\t' | '\\n' | '\\r' )+
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:31:9: ( ' ' | '\\t' | '\\n' | '\\r' )+
 			int cnt3=0;
 			loop3:
 			while (true) {
@@ -707,7 +707,7 @@ public class ProjLangLexer extends Lexer {
 
 				switch (alt3) {
 				case 1 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:
+					// D:\\Repos\\school\\ProjLang\\ProjLang.g:
 					{
 					if ( (input.LA(1) >= '\t' && input.LA(1) <= '\n')||input.LA(1)=='\r'||input.LA(1)==' ' ) {
 						input.consume();
@@ -742,187 +742,187 @@ public class ProjLangLexer extends Lexer {
 
 	@Override
 	public void mTokens() throws RecognitionException {
-		// C:\\Repos\\school\\ProjLang\\ProjLang.g:1:8: ( SEMI | IF | THEN | ELSE | LET | VAL | BIND | LESS | IN | END | FUN | LPAREN | RPAREN | WHILE | DO | LCURLY | RCURLY | NOT | ASSIGN | ADDOP | MULOP | TRUE | FALSE | ID | NUM | WS )
+		// D:\\Repos\\school\\ProjLang\\ProjLang.g:1:8: ( SEMI | IF | THEN | ELSE | LET | VAL | BIND | LESS | IN | END | FUN | LPAREN | RPAREN | WHILE | DO | LCURLY | RCURLY | NOT | ASSIGN | ADDOP | MULOP | TRUE | FALSE | ID | NUM | WS )
 		int alt4=26;
 		alt4 = dfa4.predict(input);
 		switch (alt4) {
 			case 1 :
-				// C:\\Repos\\school\\ProjLang\\ProjLang.g:1:10: SEMI
+				// D:\\Repos\\school\\ProjLang\\ProjLang.g:1:10: SEMI
 				{
 				mSEMI(); 
 
 				}
 				break;
 			case 2 :
-				// C:\\Repos\\school\\ProjLang\\ProjLang.g:1:15: IF
+				// D:\\Repos\\school\\ProjLang\\ProjLang.g:1:15: IF
 				{
 				mIF(); 
 
 				}
 				break;
 			case 3 :
-				// C:\\Repos\\school\\ProjLang\\ProjLang.g:1:18: THEN
+				// D:\\Repos\\school\\ProjLang\\ProjLang.g:1:18: THEN
 				{
 				mTHEN(); 
 
 				}
 				break;
 			case 4 :
-				// C:\\Repos\\school\\ProjLang\\ProjLang.g:1:23: ELSE
+				// D:\\Repos\\school\\ProjLang\\ProjLang.g:1:23: ELSE
 				{
 				mELSE(); 
 
 				}
 				break;
 			case 5 :
-				// C:\\Repos\\school\\ProjLang\\ProjLang.g:1:28: LET
+				// D:\\Repos\\school\\ProjLang\\ProjLang.g:1:28: LET
 				{
 				mLET(); 
 
 				}
 				break;
 			case 6 :
-				// C:\\Repos\\school\\ProjLang\\ProjLang.g:1:32: VAL
+				// D:\\Repos\\school\\ProjLang\\ProjLang.g:1:32: VAL
 				{
 				mVAL(); 
 
 				}
 				break;
 			case 7 :
-				// C:\\Repos\\school\\ProjLang\\ProjLang.g:1:36: BIND
+				// D:\\Repos\\school\\ProjLang\\ProjLang.g:1:36: BIND
 				{
 				mBIND(); 
 
 				}
 				break;
 			case 8 :
-				// C:\\Repos\\school\\ProjLang\\ProjLang.g:1:41: LESS
+				// D:\\Repos\\school\\ProjLang\\ProjLang.g:1:41: LESS
 				{
 				mLESS(); 
 
 				}
 				break;
 			case 9 :
-				// C:\\Repos\\school\\ProjLang\\ProjLang.g:1:46: IN
+				// D:\\Repos\\school\\ProjLang\\ProjLang.g:1:46: IN
 				{
 				mIN(); 
 
 				}
 				break;
 			case 10 :
-				// C:\\Repos\\school\\ProjLang\\ProjLang.g:1:49: END
+				// D:\\Repos\\school\\ProjLang\\ProjLang.g:1:49: END
 				{
 				mEND(); 
 
 				}
 				break;
 			case 11 :
-				// C:\\Repos\\school\\ProjLang\\ProjLang.g:1:53: FUN
+				// D:\\Repos\\school\\ProjLang\\ProjLang.g:1:53: FUN
 				{
 				mFUN(); 
 
 				}
 				break;
 			case 12 :
-				// C:\\Repos\\school\\ProjLang\\ProjLang.g:1:57: LPAREN
+				// D:\\Repos\\school\\ProjLang\\ProjLang.g:1:57: LPAREN
 				{
 				mLPAREN(); 
 
 				}
 				break;
 			case 13 :
-				// C:\\Repos\\school\\ProjLang\\ProjLang.g:1:64: RPAREN
+				// D:\\Repos\\school\\ProjLang\\ProjLang.g:1:64: RPAREN
 				{
 				mRPAREN(); 
 
 				}
 				break;
 			case 14 :
-				// C:\\Repos\\school\\ProjLang\\ProjLang.g:1:71: WHILE
+				// D:\\Repos\\school\\ProjLang\\ProjLang.g:1:71: WHILE
 				{
 				mWHILE(); 
 
 				}
 				break;
 			case 15 :
-				// C:\\Repos\\school\\ProjLang\\ProjLang.g:1:77: DO
+				// D:\\Repos\\school\\ProjLang\\ProjLang.g:1:77: DO
 				{
 				mDO(); 
 
 				}
 				break;
 			case 16 :
-				// C:\\Repos\\school\\ProjLang\\ProjLang.g:1:80: LCURLY
+				// D:\\Repos\\school\\ProjLang\\ProjLang.g:1:80: LCURLY
 				{
 				mLCURLY(); 
 
 				}
 				break;
 			case 17 :
-				// C:\\Repos\\school\\ProjLang\\ProjLang.g:1:87: RCURLY
+				// D:\\Repos\\school\\ProjLang\\ProjLang.g:1:87: RCURLY
 				{
 				mRCURLY(); 
 
 				}
 				break;
 			case 18 :
-				// C:\\Repos\\school\\ProjLang\\ProjLang.g:1:94: NOT
+				// D:\\Repos\\school\\ProjLang\\ProjLang.g:1:94: NOT
 				{
 				mNOT(); 
 
 				}
 				break;
 			case 19 :
-				// C:\\Repos\\school\\ProjLang\\ProjLang.g:1:98: ASSIGN
+				// D:\\Repos\\school\\ProjLang\\ProjLang.g:1:98: ASSIGN
 				{
 				mASSIGN(); 
 
 				}
 				break;
 			case 20 :
-				// C:\\Repos\\school\\ProjLang\\ProjLang.g:1:105: ADDOP
+				// D:\\Repos\\school\\ProjLang\\ProjLang.g:1:105: ADDOP
 				{
 				mADDOP(); 
 
 				}
 				break;
 			case 21 :
-				// C:\\Repos\\school\\ProjLang\\ProjLang.g:1:111: MULOP
+				// D:\\Repos\\school\\ProjLang\\ProjLang.g:1:111: MULOP
 				{
 				mMULOP(); 
 
 				}
 				break;
 			case 22 :
-				// C:\\Repos\\school\\ProjLang\\ProjLang.g:1:117: TRUE
+				// D:\\Repos\\school\\ProjLang\\ProjLang.g:1:117: TRUE
 				{
 				mTRUE(); 
 
 				}
 				break;
 			case 23 :
-				// C:\\Repos\\school\\ProjLang\\ProjLang.g:1:122: FALSE
+				// D:\\Repos\\school\\ProjLang\\ProjLang.g:1:122: FALSE
 				{
 				mFALSE(); 
 
 				}
 				break;
 			case 24 :
-				// C:\\Repos\\school\\ProjLang\\ProjLang.g:1:128: ID
+				// D:\\Repos\\school\\ProjLang\\ProjLang.g:1:128: ID
 				{
 				mID(); 
 
 				}
 				break;
 			case 25 :
-				// C:\\Repos\\school\\ProjLang\\ProjLang.g:1:131: NUM
+				// D:\\Repos\\school\\ProjLang\\ProjLang.g:1:131: NUM
 				{
 				mNUM(); 
 
 				}
 				break;
 			case 26 :
-				// C:\\Repos\\school\\ProjLang\\ProjLang.g:1:135: WS
+				// D:\\Repos\\school\\ProjLang\\ProjLang.g:1:135: WS
 				{
 				mWS(); 
 

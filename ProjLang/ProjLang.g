@@ -38,7 +38,7 @@ expr			returns [Expr value]
 					| LET VAL ID BIND binding=expr IN in=expr END {$value = new LetValExpr($ID.text, $binding.value, $in.value);}
 					//| LET FUN ID LPAREN ID RPAREN BIND expr IN expr END
 					| WHILE condition=expr DO action=expr {$value = new WhileExpr($condition.value, $action.value);}
-					| LCURLY first=expr {$value = $first.value;} (SEMI second=expr {$value = new SeqExpr($first.value, $second.value);})* RCURLY
+					| LCURLY first=expr {$value = $first.value;} (SEMI second=expr {$value = new SeqExpr($value, $second.value);})* RCURLY
 					| NOT e=expr {$value = new NotExpr($e.value);}
 					| ID ASSIGN e=expr {$value = new AssnExpr($ID.text, $e.value);}
 					| relexpr {$value = $relexpr.value;}
@@ -51,13 +51,13 @@ arithexpr	returns [Expr value]
 		 		:	left=term {$value = $left.value;} (op=ADDOP right=term  
 		 			{switch ($op.text) {
 			            case "+":
-			                $value = new BinExpr($left.value, BinOp.PLUS, $right.value);
+			                $value = new BinExpr($value, BinOp.PLUS, $right.value);
 			                break;
 			            case "-":
-			                $value = new BinExpr($left.value, BinOp.MINUS, $right.value);
+			                $value = new BinExpr($value, BinOp.MINUS, $right.value);
 			                break;			            
 			            case "|":
-			                $value = new BinExpr($left.value, BinOp.OR, $right.value);
+			                $value = new BinExpr($value, BinOp.OR, $right.value);
 			                break;
 			        }})*
 			        ;
@@ -65,13 +65,13 @@ term			returns [Expr value]
 				:	left=factor {$value = $left.value;} (op=MULOP right=factor 
 					{switch ($op.text) {
 			            case "&":
-			                $value = new BinExpr($left.value, BinOp.AND, $right.value);
+			                $value = new BinExpr($value, BinOp.AND, $right.value);
 			                break;
 			            case "/":
-			                $value = new BinExpr($left.value, BinOp.DIV, $right.value);
+			                $value = new BinExpr($value, BinOp.DIV, $right.value);
 			                break;			            
 			            case "*":
-			                $value = new BinExpr($left.value, BinOp.TIMES, $right.value);
+			                $value = new BinExpr($value, BinOp.TIMES, $right.value);
 			                break;
 			        }})*
 			        ;

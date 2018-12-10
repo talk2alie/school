@@ -1,4 +1,4 @@
-// $ANTLR null C:\\Repos\\school\\ProjLang\\ProjLang.g 2018-12-09 22:21:07
+// $ANTLR 3.5.1 D:\\Repos\\school\\ProjLang\\ProjLang.g 2018-12-10 16:24:03
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -59,12 +59,12 @@ public class ProjLangParser extends Parser {
 	}
 
 	@Override public String[] getTokenNames() { return ProjLangParser.tokenNames; }
-	@Override public String getGrammarFileName() { return "C:\\Repos\\school\\ProjLang\\ProjLang.g"; }
+	@Override public String getGrammarFileName() { return "D:\\Repos\\school\\ProjLang\\ProjLang.g"; }
 
 
 
 	// $ANTLR start "input"
-	// C:\\Repos\\school\\ProjLang\\ProjLang.g:33:1: input returns [Expr value] : expr SEMI EOF ;
+	// D:\\Repos\\school\\ProjLang\\ProjLang.g:33:1: input returns [Expr value] : expr SEMI EOF ;
 	public final Expr input() throws RecognitionException {
 		Expr value = null;
 
@@ -72,8 +72,8 @@ public class ProjLangParser extends Parser {
 		Expr expr1 =null;
 
 		try {
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:34:5: ( expr SEMI EOF )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:34:7: expr SEMI EOF
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:34:5: ( expr SEMI EOF )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:34:7: expr SEMI EOF
 			{
 			pushFollow(FOLLOW_expr_in_input344);
 			expr1=expr();
@@ -99,7 +99,7 @@ public class ProjLangParser extends Parser {
 
 
 	// $ANTLR start "expr"
-	// C:\\Repos\\school\\ProjLang\\ProjLang.g:36:1: expr returns [Expr value] : ( IF condition= expr THEN trueExpr= expr ELSE falseExpr= expr | LET VAL ID BIND binding= expr IN in= expr END | WHILE condition= expr DO action= expr | LCURLY first= expr ( SEMI second= expr )* RCURLY | NOT e= expr | ID ASSIGN e= expr | relexpr );
+	// D:\\Repos\\school\\ProjLang\\ProjLang.g:36:1: expr returns [Expr value] : ( IF condition= expr THEN trueExpr= expr ELSE falseExpr= expr | LET VAL ID BIND binding= expr IN in= expr END | WHILE condition= expr DO action= expr | LCURLY first= expr ( SEMI second= expr )* RCURLY | NOT e= expr | ID ASSIGN e= expr | relexpr );
 	public final Expr expr() throws RecognitionException {
 		Expr value = null;
 
@@ -118,7 +118,7 @@ public class ProjLangParser extends Parser {
 		Expr relexpr4 =null;
 
 		try {
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:37:5: ( IF condition= expr THEN trueExpr= expr ELSE falseExpr= expr | LET VAL ID BIND binding= expr IN in= expr END | WHILE condition= expr DO action= expr | LCURLY first= expr ( SEMI second= expr )* RCURLY | NOT e= expr | ID ASSIGN e= expr | relexpr )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:37:5: ( IF condition= expr THEN trueExpr= expr ELSE falseExpr= expr | LET VAL ID BIND binding= expr IN in= expr END | WHILE condition= expr DO action= expr | LCURLY first= expr ( SEMI second= expr )* RCURLY | NOT e= expr | ID ASSIGN e= expr | relexpr )
 			int alt2=7;
 			switch ( input.LA(1) ) {
 			case IF:
@@ -184,7 +184,7 @@ public class ProjLangParser extends Parser {
 			}
 			switch (alt2) {
 				case 1 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:37:7: IF condition= expr THEN trueExpr= expr ELSE falseExpr= expr
+					// D:\\Repos\\school\\ProjLang\\ProjLang.g:37:7: IF condition= expr THEN trueExpr= expr ELSE falseExpr= expr
 					{
 					match(input,IF,FOLLOW_IF_in_expr373); 
 					pushFollow(FOLLOW_expr_in_expr377);
@@ -205,7 +205,7 @@ public class ProjLangParser extends Parser {
 					}
 					break;
 				case 2 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:38:8: LET VAL ID BIND binding= expr IN in= expr END
+					// D:\\Repos\\school\\ProjLang\\ProjLang.g:38:8: LET VAL ID BIND binding= expr IN in= expr END
 					{
 					match(input,LET,FOLLOW_LET_in_expr400); 
 					match(input,VAL,FOLLOW_VAL_in_expr402); 
@@ -225,7 +225,7 @@ public class ProjLangParser extends Parser {
 					}
 					break;
 				case 3 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:40:8: WHILE condition= expr DO action= expr
+					// D:\\Repos\\school\\ProjLang\\ProjLang.g:40:8: WHILE condition= expr DO action= expr
 					{
 					match(input,WHILE,FOLLOW_WHILE_in_expr435); 
 					pushFollow(FOLLOW_expr_in_expr439);
@@ -241,7 +241,7 @@ public class ProjLangParser extends Parser {
 					}
 					break;
 				case 4 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:41:8: LCURLY first= expr ( SEMI second= expr )* RCURLY
+					// D:\\Repos\\school\\ProjLang\\ProjLang.g:41:8: LCURLY first= expr ( SEMI second= expr )* RCURLY
 					{
 					match(input,LCURLY,FOLLOW_LCURLY_in_expr456); 
 					pushFollow(FOLLOW_expr_in_expr460);
@@ -249,7 +249,7 @@ public class ProjLangParser extends Parser {
 					state._fsp--;
 
 					value = first;
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:41:51: ( SEMI second= expr )*
+					// D:\\Repos\\school\\ProjLang\\ProjLang.g:41:51: ( SEMI second= expr )*
 					loop1:
 					while (true) {
 						int alt1=2;
@@ -260,14 +260,14 @@ public class ProjLangParser extends Parser {
 
 						switch (alt1) {
 						case 1 :
-							// C:\\Repos\\school\\ProjLang\\ProjLang.g:41:52: SEMI second= expr
+							// D:\\Repos\\school\\ProjLang\\ProjLang.g:41:52: SEMI second= expr
 							{
 							match(input,SEMI,FOLLOW_SEMI_in_expr465); 
 							pushFollow(FOLLOW_expr_in_expr469);
 							second=expr();
 							state._fsp--;
 
-							value = new SeqExpr(first, second);
+							value = new SeqExpr(value, second);
 							}
 							break;
 
@@ -280,7 +280,7 @@ public class ProjLangParser extends Parser {
 					}
 					break;
 				case 5 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:42:8: NOT e= expr
+					// D:\\Repos\\school\\ProjLang\\ProjLang.g:42:8: NOT e= expr
 					{
 					match(input,NOT,FOLLOW_NOT_in_expr484); 
 					pushFollow(FOLLOW_expr_in_expr488);
@@ -291,7 +291,7 @@ public class ProjLangParser extends Parser {
 					}
 					break;
 				case 6 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:43:8: ID ASSIGN e= expr
+					// D:\\Repos\\school\\ProjLang\\ProjLang.g:43:8: ID ASSIGN e= expr
 					{
 					ID3=(Token)match(input,ID,FOLLOW_ID_in_expr499); 
 					match(input,ASSIGN,FOLLOW_ASSIGN_in_expr501); 
@@ -303,7 +303,7 @@ public class ProjLangParser extends Parser {
 					}
 					break;
 				case 7 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:44:8: relexpr
+					// D:\\Repos\\school\\ProjLang\\ProjLang.g:44:8: relexpr
 					{
 					pushFollow(FOLLOW_relexpr_in_expr516);
 					relexpr4=relexpr();
@@ -329,7 +329,7 @@ public class ProjLangParser extends Parser {
 
 
 	// $ANTLR start "relexpr"
-	// C:\\Repos\\school\\ProjLang\\ProjLang.g:46:1: relexpr returns [Expr value] : left= arithexpr (op= ( LESS | BIND ) right= arithexpr )? ;
+	// D:\\Repos\\school\\ProjLang\\ProjLang.g:46:1: relexpr returns [Expr value] : left= arithexpr (op= ( LESS | BIND ) right= arithexpr )? ;
 	public final Expr relexpr() throws RecognitionException {
 		Expr value = null;
 
@@ -339,15 +339,15 @@ public class ProjLangParser extends Parser {
 		Expr right =null;
 
 		try {
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:47:5: (left= arithexpr (op= ( LESS | BIND ) right= arithexpr )? )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:47:7: left= arithexpr (op= ( LESS | BIND ) right= arithexpr )?
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:47:5: (left= arithexpr (op= ( LESS | BIND ) right= arithexpr )? )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:47:7: left= arithexpr (op= ( LESS | BIND ) right= arithexpr )?
 			{
 			pushFollow(FOLLOW_arithexpr_in_relexpr542);
 			left=arithexpr();
 			state._fsp--;
 
 			value = left;
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:47:46: (op= ( LESS | BIND ) right= arithexpr )?
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:47:46: (op= ( LESS | BIND ) right= arithexpr )?
 			int alt3=2;
 			int LA3_0 = input.LA(1);
 			if ( (LA3_0==BIND||LA3_0==LESS) ) {
@@ -355,7 +355,7 @@ public class ProjLangParser extends Parser {
 			}
 			switch (alt3) {
 				case 1 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:47:47: op= ( LESS | BIND ) right= arithexpr
+					// D:\\Repos\\school\\ProjLang\\ProjLang.g:47:47: op= ( LESS | BIND ) right= arithexpr
 					{
 					op=input.LT(1);
 					if ( input.LA(1)==BIND||input.LA(1)==LESS ) {
@@ -393,7 +393,7 @@ public class ProjLangParser extends Parser {
 
 
 	// $ANTLR start "arithexpr"
-	// C:\\Repos\\school\\ProjLang\\ProjLang.g:50:1: arithexpr returns [Expr value] : left= term (op= ADDOP right= term )* ;
+	// D:\\Repos\\school\\ProjLang\\ProjLang.g:50:1: arithexpr returns [Expr value] : left= term (op= ADDOP right= term )* ;
 	public final Expr arithexpr() throws RecognitionException {
 		Expr value = null;
 
@@ -403,15 +403,15 @@ public class ProjLangParser extends Parser {
 		Expr right =null;
 
 		try {
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:51:6: (left= term (op= ADDOP right= term )* )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:51:8: left= term (op= ADDOP right= term )*
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:51:6: (left= term (op= ADDOP right= term )* )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:51:8: left= term (op= ADDOP right= term )*
 			{
 			pushFollow(FOLLOW_term_in_arithexpr593);
 			left=term();
 			state._fsp--;
 
 			value = left;
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:51:42: (op= ADDOP right= term )*
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:51:42: (op= ADDOP right= term )*
 			loop4:
 			while (true) {
 				int alt4=2;
@@ -422,7 +422,7 @@ public class ProjLangParser extends Parser {
 
 				switch (alt4) {
 				case 1 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:51:43: op= ADDOP right= term
+					// D:\\Repos\\school\\ProjLang\\ProjLang.g:51:43: op= ADDOP right= term
 					{
 					op=(Token)match(input,ADDOP,FOLLOW_ADDOP_in_arithexpr600); 
 					pushFollow(FOLLOW_term_in_arithexpr604);
@@ -431,13 +431,13 @@ public class ProjLangParser extends Parser {
 
 					switch ((op!=null?op.getText():null)) {
 								            case "+":
-								                value = new BinExpr(left, BinOp.PLUS, right);
+								                value = new BinExpr(value, BinOp.PLUS, right);
 								                break;
 								            case "-":
-								                value = new BinExpr(left, BinOp.MINUS, right);
+								                value = new BinExpr(value, BinOp.MINUS, right);
 								                break;			            
 								            case "|":
-								                value = new BinExpr(left, BinOp.OR, right);
+								                value = new BinExpr(value, BinOp.OR, right);
 								                break;
 								        }
 					}
@@ -465,7 +465,7 @@ public class ProjLangParser extends Parser {
 
 
 	// $ANTLR start "term"
-	// C:\\Repos\\school\\ProjLang\\ProjLang.g:64:1: term returns [Expr value] : left= factor (op= MULOP right= factor )* ;
+	// D:\\Repos\\school\\ProjLang\\ProjLang.g:64:1: term returns [Expr value] : left= factor (op= MULOP right= factor )* ;
 	public final Expr term() throws RecognitionException {
 		Expr value = null;
 
@@ -475,15 +475,15 @@ public class ProjLangParser extends Parser {
 		Expr right =null;
 
 		try {
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:65:5: (left= factor (op= MULOP right= factor )* )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:65:7: left= factor (op= MULOP right= factor )*
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:65:5: (left= factor (op= MULOP right= factor )* )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:65:7: left= factor (op= MULOP right= factor )*
 			{
 			pushFollow(FOLLOW_factor_in_term647);
 			left=factor();
 			state._fsp--;
 
 			value = left;
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:65:43: (op= MULOP right= factor )*
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:65:43: (op= MULOP right= factor )*
 			loop5:
 			while (true) {
 				int alt5=2;
@@ -494,7 +494,7 @@ public class ProjLangParser extends Parser {
 
 				switch (alt5) {
 				case 1 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:65:44: op= MULOP right= factor
+					// D:\\Repos\\school\\ProjLang\\ProjLang.g:65:44: op= MULOP right= factor
 					{
 					op=(Token)match(input,MULOP,FOLLOW_MULOP_in_term654); 
 					pushFollow(FOLLOW_factor_in_term658);
@@ -503,13 +503,13 @@ public class ProjLangParser extends Parser {
 
 					switch ((op!=null?op.getText():null)) {
 								            case "&":
-								                value = new BinExpr(left, BinOp.AND, right);
+								                value = new BinExpr(value, BinOp.AND, right);
 								                break;
 								            case "/":
-								                value = new BinExpr(left, BinOp.DIV, right);
+								                value = new BinExpr(value, BinOp.DIV, right);
 								                break;			            
 								            case "*":
-								                value = new BinExpr(left, BinOp.TIMES, right);
+								                value = new BinExpr(value, BinOp.TIMES, right);
 								                break;
 								        }
 					}
@@ -537,7 +537,7 @@ public class ProjLangParser extends Parser {
 
 
 	// $ANTLR start "factor"
-	// C:\\Repos\\school\\ProjLang\\ProjLang.g:78:1: factor returns [Expr value] : ( NUM | TRUE | FALSE | ID );
+	// D:\\Repos\\school\\ProjLang\\ProjLang.g:78:1: factor returns [Expr value] : ( NUM | TRUE | FALSE | ID );
 	public final Expr factor() throws RecognitionException {
 		Expr value = null;
 
@@ -546,7 +546,7 @@ public class ProjLangParser extends Parser {
 		Token ID6=null;
 
 		try {
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:79:5: ( NUM | TRUE | FALSE | ID )
+			// D:\\Repos\\school\\ProjLang\\ProjLang.g:79:5: ( NUM | TRUE | FALSE | ID )
 			int alt6=4;
 			switch ( input.LA(1) ) {
 			case NUM:
@@ -576,28 +576,28 @@ public class ProjLangParser extends Parser {
 			}
 			switch (alt6) {
 				case 1 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:79:7: NUM
+					// D:\\Repos\\school\\ProjLang\\ProjLang.g:79:7: NUM
 					{
 					NUM5=(Token)match(input,NUM,FOLLOW_NUM_in_factor696); 
 					value = new IntConst(Integer.parseInt((NUM5!=null?NUM5.getText():null)));
 					}
 					break;
 				case 2 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:80:8: TRUE
+					// D:\\Repos\\school\\ProjLang\\ProjLang.g:80:8: TRUE
 					{
 					match(input,TRUE,FOLLOW_TRUE_in_factor707); 
 					value = new BoolConst(true);
 					}
 					break;
 				case 3 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:81:8: FALSE
+					// D:\\Repos\\school\\ProjLang\\ProjLang.g:81:8: FALSE
 					{
 					match(input,FALSE,FOLLOW_FALSE_in_factor718); 
 					value = new BoolConst(false);
 					}
 					break;
 				case 4 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:82:8: ID
+					// D:\\Repos\\school\\ProjLang\\ProjLang.g:82:8: ID
 					{
 					ID6=(Token)match(input,ID,FOLLOW_ID_in_factor729); 
 					value = new VarExpr((ID6!=null?ID6.getText():null));
