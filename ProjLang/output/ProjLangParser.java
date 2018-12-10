@@ -1,4 +1,4 @@
-// $ANTLR null C:\\Repos\\school\\ProjLang\\ProjLang.g 2018-12-08 18:54:43
+// $ANTLR null C:\\Repos\\school\\ProjLang\\ProjLang.g 2018-12-09 20:22:09
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -64,18 +64,24 @@ public class ProjLangParser extends Parser {
 
 
 	// $ANTLR start "input"
-	// C:\\Repos\\school\\ProjLang\\ProjLang.g:33:1: input : expr SEMI EOF ;
-	public final void input() throws RecognitionException {
+	// C:\\Repos\\school\\ProjLang\\ProjLang.g:33:1: input returns [Expr value] : expr SEMI EOF ;
+	public final Expr input() throws RecognitionException {
+		Expr value = null;
+
+
+		Expr expr1 =null;
+
 		try {
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:33:9: ( expr SEMI EOF )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:33:11: expr SEMI EOF
+			// C:\\Repos\\school\\ProjLang\\ProjLang.g:34:5: ( expr SEMI EOF )
+			// C:\\Repos\\school\\ProjLang\\ProjLang.g:34:7: expr SEMI EOF
 			{
-			pushFollow(FOLLOW_expr_in_input337);
-			expr();
+			pushFollow(FOLLOW_expr_in_input344);
+			expr1=expr();
 			state._fsp--;
 
-			match(input,SEMI,FOLLOW_SEMI_in_input339); 
-			match(input,EOF,FOLLOW_EOF_in_input341); 
+			value = expr1;
+			match(input,SEMI,FOLLOW_SEMI_in_input348); 
+			match(input,EOF,FOLLOW_EOF_in_input350); 
 			}
 
 		}
@@ -86,17 +92,34 @@ public class ProjLangParser extends Parser {
 		finally {
 			// do for sure before leaving
 		}
+		return value;
 	}
 	// $ANTLR end "input"
 
 
 
 	// $ANTLR start "expr"
-	// C:\\Repos\\school\\ProjLang\\ProjLang.g:34:1: expr : ( IF expr THEN expr ELSE expr | LET VAL ID BIND expr IN expr END | LET FUN ID LPAREN ID RPAREN BIND expr IN expr END | WHILE expr DO expr | LCURLY expr ( SEMI expr )* RCURLY | NOT expr | ID ASSIGN expr | relexpr );
-	public final void expr() throws RecognitionException {
+	// C:\\Repos\\school\\ProjLang\\ProjLang.g:35:1: expr returns [Expr value] : ( IF condition= expr THEN trueExpr= expr ELSE falseExpr= expr | LET VAL ID BIND binding= expr IN in= expr END | WHILE condition= expr DO action= expr | LCURLY first= expr ( SEMI second= expr )* RCURLY | NOT e= expr | ID ASSIGN e= expr | relexpr );
+	public final Expr expr() throws RecognitionException {
+		Expr value = null;
+
+
+		Token ID2=null;
+		Token ID3=null;
+		Expr condition =null;
+		Expr trueExpr =null;
+		Expr falseExpr =null;
+		Expr binding =null;
+		Expr in =null;
+		Expr action =null;
+		Expr first =null;
+		Expr second =null;
+		Expr e =null;
+		Expr relexpr4 =null;
+
 		try {
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:34:9: ( IF expr THEN expr ELSE expr | LET VAL ID BIND expr IN expr END | LET FUN ID LPAREN ID RPAREN BIND expr IN expr END | WHILE expr DO expr | LCURLY expr ( SEMI expr )* RCURLY | NOT expr | ID ASSIGN expr | relexpr )
-			int alt2=8;
+			// C:\\Repos\\school\\ProjLang\\ProjLang.g:36:5: ( IF condition= expr THEN trueExpr= expr ELSE falseExpr= expr | LET VAL ID BIND binding= expr IN in= expr END | WHILE condition= expr DO action= expr | LCURLY first= expr ( SEMI second= expr )* RCURLY | NOT e= expr | ID ASSIGN e= expr | relexpr )
+			int alt2=7;
 			switch ( input.LA(1) ) {
 			case IF:
 				{
@@ -105,51 +128,32 @@ public class ProjLangParser extends Parser {
 				break;
 			case LET:
 				{
-				int LA2_2 = input.LA(2);
-				if ( (LA2_2==VAL) ) {
-					alt2=2;
-				}
-				else if ( (LA2_2==FUN) ) {
-					alt2=3;
-				}
-
-				else {
-					int nvaeMark = input.mark();
-					try {
-						input.consume();
-						NoViableAltException nvae =
-							new NoViableAltException("", 2, 2, input);
-						throw nvae;
-					} finally {
-						input.rewind(nvaeMark);
-					}
-				}
-
+				alt2=2;
 				}
 				break;
 			case WHILE:
 				{
-				alt2=4;
+				alt2=3;
 				}
 				break;
 			case LCURLY:
 				{
-				alt2=5;
+				alt2=4;
 				}
 				break;
 			case NOT:
 				{
-				alt2=6;
+				alt2=5;
 				}
 				break;
 			case ID:
 				{
 				int LA2_6 = input.LA(2);
 				if ( (LA2_6==ASSIGN) ) {
-					alt2=7;
+					alt2=6;
 				}
 				else if ( (LA2_6==ADDOP||LA2_6==BIND||(LA2_6 >= DO && LA2_6 <= END)||LA2_6==IN||LA2_6==LESS||LA2_6==MULOP||LA2_6==RCURLY||(LA2_6 >= SEMI && LA2_6 <= THEN)) ) {
-					alt2=8;
+					alt2=7;
 				}
 
 				else {
@@ -170,7 +174,7 @@ public class ProjLangParser extends Parser {
 			case NUM:
 			case TRUE:
 				{
-				alt2=8;
+				alt2=7;
 				}
 				break;
 			default:
@@ -180,90 +184,72 @@ public class ProjLangParser extends Parser {
 			}
 			switch (alt2) {
 				case 1 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:34:11: IF expr THEN expr ELSE expr
+					// C:\\Repos\\school\\ProjLang\\ProjLang.g:36:7: IF condition= expr THEN trueExpr= expr ELSE falseExpr= expr
 					{
-					match(input,IF,FOLLOW_IF_in_expr351); 
-					pushFollow(FOLLOW_expr_in_expr353);
-					expr();
+					match(input,IF,FOLLOW_IF_in_expr367); 
+					pushFollow(FOLLOW_expr_in_expr371);
+					condition=expr();
 					state._fsp--;
 
-					match(input,THEN,FOLLOW_THEN_in_expr355); 
-					pushFollow(FOLLOW_expr_in_expr357);
-					expr();
+					match(input,THEN,FOLLOW_THEN_in_expr373); 
+					pushFollow(FOLLOW_expr_in_expr377);
+					trueExpr=expr();
 					state._fsp--;
 
-					match(input,ELSE,FOLLOW_ELSE_in_expr359); 
-					pushFollow(FOLLOW_expr_in_expr361);
-					expr();
+					match(input,ELSE,FOLLOW_ELSE_in_expr379); 
+					pushFollow(FOLLOW_expr_in_expr383);
+					falseExpr=expr();
 					state._fsp--;
 
+					value = new IfExpr(condition, trueExpr, falseExpr);
 					}
 					break;
 				case 2 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:35:8: LET VAL ID BIND expr IN expr END
+					// C:\\Repos\\school\\ProjLang\\ProjLang.g:37:8: LET VAL ID BIND binding= expr IN in= expr END
 					{
-					match(input,LET,FOLLOW_LET_in_expr370); 
-					match(input,VAL,FOLLOW_VAL_in_expr372); 
-					match(input,ID,FOLLOW_ID_in_expr374); 
-					match(input,BIND,FOLLOW_BIND_in_expr376); 
-					pushFollow(FOLLOW_expr_in_expr378);
-					expr();
+					match(input,LET,FOLLOW_LET_in_expr394); 
+					match(input,VAL,FOLLOW_VAL_in_expr396); 
+					ID2=(Token)match(input,ID,FOLLOW_ID_in_expr398); 
+					match(input,BIND,FOLLOW_BIND_in_expr400); 
+					pushFollow(FOLLOW_expr_in_expr404);
+					binding=expr();
 					state._fsp--;
 
-					match(input,IN,FOLLOW_IN_in_expr380); 
-					pushFollow(FOLLOW_expr_in_expr382);
-					expr();
+					match(input,IN,FOLLOW_IN_in_expr406); 
+					pushFollow(FOLLOW_expr_in_expr410);
+					in=expr();
 					state._fsp--;
 
-					match(input,END,FOLLOW_END_in_expr384); 
+					match(input,END,FOLLOW_END_in_expr412); 
+					value = new LetValExpr((ID2!=null?ID2.getText():null), binding, in);
 					}
 					break;
 				case 3 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:36:8: LET FUN ID LPAREN ID RPAREN BIND expr IN expr END
+					// C:\\Repos\\school\\ProjLang\\ProjLang.g:39:8: WHILE condition= expr DO action= expr
 					{
-					match(input,LET,FOLLOW_LET_in_expr393); 
-					match(input,FUN,FOLLOW_FUN_in_expr395); 
-					match(input,ID,FOLLOW_ID_in_expr397); 
-					match(input,LPAREN,FOLLOW_LPAREN_in_expr399); 
-					match(input,ID,FOLLOW_ID_in_expr401); 
-					match(input,RPAREN,FOLLOW_RPAREN_in_expr403); 
-					match(input,BIND,FOLLOW_BIND_in_expr405); 
-					pushFollow(FOLLOW_expr_in_expr407);
-					expr();
+					match(input,WHILE,FOLLOW_WHILE_in_expr429); 
+					pushFollow(FOLLOW_expr_in_expr433);
+					condition=expr();
 					state._fsp--;
 
-					match(input,IN,FOLLOW_IN_in_expr409); 
-					pushFollow(FOLLOW_expr_in_expr411);
-					expr();
+					match(input,DO,FOLLOW_DO_in_expr435); 
+					pushFollow(FOLLOW_expr_in_expr439);
+					action=expr();
 					state._fsp--;
 
-					match(input,END,FOLLOW_END_in_expr413); 
+					value = new WhileExpr(condition, action);
 					}
 					break;
 				case 4 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:37:8: WHILE expr DO expr
+					// C:\\Repos\\school\\ProjLang\\ProjLang.g:40:8: LCURLY first= expr ( SEMI second= expr )* RCURLY
 					{
-					match(input,WHILE,FOLLOW_WHILE_in_expr422); 
-					pushFollow(FOLLOW_expr_in_expr424);
-					expr();
+					match(input,LCURLY,FOLLOW_LCURLY_in_expr450); 
+					pushFollow(FOLLOW_expr_in_expr454);
+					first=expr();
 					state._fsp--;
 
-					match(input,DO,FOLLOW_DO_in_expr426); 
-					pushFollow(FOLLOW_expr_in_expr428);
-					expr();
-					state._fsp--;
-
-					}
-					break;
-				case 5 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:38:8: LCURLY expr ( SEMI expr )* RCURLY
-					{
-					match(input,LCURLY,FOLLOW_LCURLY_in_expr437); 
-					pushFollow(FOLLOW_expr_in_expr439);
-					expr();
-					state._fsp--;
-
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:38:20: ( SEMI expr )*
+					value = first;
+					// C:\\Repos\\school\\ProjLang\\ProjLang.g:40:51: ( SEMI second= expr )*
 					loop1:
 					while (true) {
 						int alt1=2;
@@ -274,13 +260,14 @@ public class ProjLangParser extends Parser {
 
 						switch (alt1) {
 						case 1 :
-							// C:\\Repos\\school\\ProjLang\\ProjLang.g:38:21: SEMI expr
+							// C:\\Repos\\school\\ProjLang\\ProjLang.g:40:52: SEMI second= expr
 							{
-							match(input,SEMI,FOLLOW_SEMI_in_expr442); 
-							pushFollow(FOLLOW_expr_in_expr444);
-							expr();
+							match(input,SEMI,FOLLOW_SEMI_in_expr459); 
+							pushFollow(FOLLOW_expr_in_expr463);
+							second=expr();
 							state._fsp--;
 
+							value = new SeqExpr(first, second);
 							}
 							break;
 
@@ -289,37 +276,40 @@ public class ProjLangParser extends Parser {
 						}
 					}
 
-					match(input,RCURLY,FOLLOW_RCURLY_in_expr449); 
+					match(input,RCURLY,FOLLOW_RCURLY_in_expr469); 
+					}
+					break;
+				case 5 :
+					// C:\\Repos\\school\\ProjLang\\ProjLang.g:41:8: NOT e= expr
+					{
+					match(input,NOT,FOLLOW_NOT_in_expr478); 
+					pushFollow(FOLLOW_expr_in_expr482);
+					e=expr();
+					state._fsp--;
+
+					value = new NotExpr(e);
 					}
 					break;
 				case 6 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:39:8: NOT expr
+					// C:\\Repos\\school\\ProjLang\\ProjLang.g:42:8: ID ASSIGN e= expr
 					{
-					match(input,NOT,FOLLOW_NOT_in_expr458); 
-					pushFollow(FOLLOW_expr_in_expr460);
-					expr();
+					ID3=(Token)match(input,ID,FOLLOW_ID_in_expr493); 
+					match(input,ASSIGN,FOLLOW_ASSIGN_in_expr495); 
+					pushFollow(FOLLOW_expr_in_expr499);
+					e=expr();
 					state._fsp--;
 
+					value = new AssnExpr((ID3!=null?ID3.getText():null), e);
 					}
 					break;
 				case 7 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:40:8: ID ASSIGN expr
+					// C:\\Repos\\school\\ProjLang\\ProjLang.g:43:8: relexpr
 					{
-					match(input,ID,FOLLOW_ID_in_expr469); 
-					match(input,ASSIGN,FOLLOW_ASSIGN_in_expr471); 
-					pushFollow(FOLLOW_expr_in_expr473);
-					expr();
+					pushFollow(FOLLOW_relexpr_in_expr510);
+					relexpr4=relexpr();
 					state._fsp--;
 
-					}
-					break;
-				case 8 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:41:8: relexpr
-					{
-					pushFollow(FOLLOW_relexpr_in_expr482);
-					relexpr();
-					state._fsp--;
-
+					value = relexpr4;
 					}
 					break;
 
@@ -332,44 +322,78 @@ public class ProjLangParser extends Parser {
 		finally {
 			// do for sure before leaving
 		}
+		return value;
 	}
 	// $ANTLR end "expr"
 
 
 
 	// $ANTLR start "relexpr"
-	// C:\\Repos\\school\\ProjLang\\ProjLang.g:42:1: relexpr : arithexpr ( ( LESS | BIND ) arithexpr )? ;
-	public final void relexpr() throws RecognitionException {
+	// C:\\Repos\\school\\ProjLang\\ProjLang.g:44:1: relexpr returns [Expr value] : left= arithexpr ( (op= LESS |op= BIND ) right= arithexpr )? ;
+	public final Expr relexpr() throws RecognitionException {
+		Expr value = null;
+
+
+		Token op=null;
+		Expr left =null;
+		Expr right =null;
+
 		try {
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:42:11: ( arithexpr ( ( LESS | BIND ) arithexpr )? )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:42:13: arithexpr ( ( LESS | BIND ) arithexpr )?
+			// C:\\Repos\\school\\ProjLang\\ProjLang.g:45:5: (left= arithexpr ( (op= LESS |op= BIND ) right= arithexpr )? )
+			// C:\\Repos\\school\\ProjLang\\ProjLang.g:45:7: left= arithexpr ( (op= LESS |op= BIND ) right= arithexpr )?
 			{
-			pushFollow(FOLLOW_arithexpr_in_relexpr491);
-			arithexpr();
+			pushFollow(FOLLOW_arithexpr_in_relexpr530);
+			left=arithexpr();
 			state._fsp--;
 
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:42:23: ( ( LESS | BIND ) arithexpr )?
-			int alt3=2;
-			int LA3_0 = input.LA(1);
-			if ( (LA3_0==BIND||LA3_0==LESS) ) {
-				alt3=1;
+			value = left;
+			// C:\\Repos\\school\\ProjLang\\ProjLang.g:45:46: ( (op= LESS |op= BIND ) right= arithexpr )?
+			int alt4=2;
+			int LA4_0 = input.LA(1);
+			if ( (LA4_0==BIND||LA4_0==LESS) ) {
+				alt4=1;
 			}
-			switch (alt3) {
+			switch (alt4) {
 				case 1 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:42:24: ( LESS | BIND ) arithexpr
+					// C:\\Repos\\school\\ProjLang\\ProjLang.g:45:47: (op= LESS |op= BIND ) right= arithexpr
 					{
-					if ( input.LA(1)==BIND||input.LA(1)==LESS ) {
-						input.consume();
-						state.errorRecovery=false;
+					// C:\\Repos\\school\\ProjLang\\ProjLang.g:45:47: (op= LESS |op= BIND )
+					int alt3=2;
+					int LA3_0 = input.LA(1);
+					if ( (LA3_0==LESS) ) {
+						alt3=1;
 					}
+					else if ( (LA3_0==BIND) ) {
+						alt3=2;
+					}
+
 					else {
-						MismatchedSetException mse = new MismatchedSetException(null,input);
-						throw mse;
+						NoViableAltException nvae =
+							new NoViableAltException("", 3, 0, input);
+						throw nvae;
 					}
-					pushFollow(FOLLOW_arithexpr_in_relexpr502);
-					arithexpr();
+
+					switch (alt3) {
+						case 1 :
+							// C:\\Repos\\school\\ProjLang\\ProjLang.g:45:48: op= LESS
+							{
+							op=(Token)match(input,LESS,FOLLOW_LESS_in_relexpr538); 
+							}
+							break;
+						case 2 :
+							// C:\\Repos\\school\\ProjLang\\ProjLang.g:45:58: op= BIND
+							{
+							op=(Token)match(input,BIND,FOLLOW_BIND_in_relexpr544); 
+							}
+							break;
+
+					}
+
+					pushFollow(FOLLOW_arithexpr_in_relexpr549);
+					right=arithexpr();
 					state._fsp--;
 
+					value = ((op!=null?op.getText():null).equals("<")) ? new BinExpr(left, BinOp.LT, right) : new BinExpr(left, BinOp.EQ, right);
 					}
 					break;
 
@@ -385,92 +409,60 @@ public class ProjLangParser extends Parser {
 		finally {
 			// do for sure before leaving
 		}
+		return value;
 	}
 	// $ANTLR end "relexpr"
 
 
 
 	// $ANTLR start "arithexpr"
-	// C:\\Repos\\school\\ProjLang\\ProjLang.g:43:1: arithexpr : term ( ADDOP term )* ;
-	public final void arithexpr() throws RecognitionException {
+	// C:\\Repos\\school\\ProjLang\\ProjLang.g:47:1: arithexpr returns [Expr value] : left= term (op= ADDOP right= term )* ;
+	public final Expr arithexpr() throws RecognitionException {
+		Expr value = null;
+
+
+		Token op=null;
+		Expr left =null;
+		Expr right =null;
+
 		try {
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:43:13: ( term ( ADDOP term )* )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:43:15: term ( ADDOP term )*
+			// C:\\Repos\\school\\ProjLang\\ProjLang.g:48:6: (left= term (op= ADDOP right= term )* )
+			// C:\\Repos\\school\\ProjLang\\ProjLang.g:48:8: left= term (op= ADDOP right= term )*
 			{
-			pushFollow(FOLLOW_term_in_arithexpr513);
-			term();
+			pushFollow(FOLLOW_term_in_arithexpr577);
+			left=term();
 			state._fsp--;
 
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:43:20: ( ADDOP term )*
-			loop4:
-			while (true) {
-				int alt4=2;
-				int LA4_0 = input.LA(1);
-				if ( (LA4_0==ADDOP) ) {
-					alt4=1;
-				}
-
-				switch (alt4) {
-				case 1 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:43:21: ADDOP term
-					{
-					match(input,ADDOP,FOLLOW_ADDOP_in_arithexpr516); 
-					pushFollow(FOLLOW_term_in_arithexpr518);
-					term();
-					state._fsp--;
-
-					}
-					break;
-
-				default :
-					break loop4;
-				}
-			}
-
-			}
-
-		}
-		catch (RecognitionException re) {
-			reportError(re);
-			recover(input,re);
-		}
-		finally {
-			// do for sure before leaving
-		}
-	}
-	// $ANTLR end "arithexpr"
-
-
-
-	// $ANTLR start "term"
-	// C:\\Repos\\school\\ProjLang\\ProjLang.g:44:1: term : factor ( MULOP factor )* ;
-	public final void term() throws RecognitionException {
-		try {
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:44:9: ( factor ( MULOP factor )* )
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:44:11: factor ( MULOP factor )*
-			{
-			pushFollow(FOLLOW_factor_in_term530);
-			factor();
-			state._fsp--;
-
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:44:18: ( MULOP factor )*
+			value = left;
+			// C:\\Repos\\school\\ProjLang\\ProjLang.g:48:42: (op= ADDOP right= term )*
 			loop5:
 			while (true) {
 				int alt5=2;
 				int LA5_0 = input.LA(1);
-				if ( (LA5_0==MULOP) ) {
+				if ( (LA5_0==ADDOP) ) {
 					alt5=1;
 				}
 
 				switch (alt5) {
 				case 1 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:44:19: MULOP factor
+					// C:\\Repos\\school\\ProjLang\\ProjLang.g:48:43: op= ADDOP right= term
 					{
-					match(input,MULOP,FOLLOW_MULOP_in_term533); 
-					pushFollow(FOLLOW_factor_in_term535);
-					factor();
+					op=(Token)match(input,ADDOP,FOLLOW_ADDOP_in_arithexpr584); 
+					pushFollow(FOLLOW_term_in_arithexpr588);
+					right=term();
 					state._fsp--;
 
+					switch ((op!=null?op.getText():null)) {
+								            case "+":
+								                value = new BinExpr(left, BinOp.PLUS, right);
+								                break;
+								            case "-":
+								                value = new BinExpr(left, BinOp.MINUS, right);
+								                break;			            
+								            case "|":
+								                value = new BinExpr(left, BinOp.OR, right);
+								                break;
+								        }
 					}
 					break;
 
@@ -489,77 +481,149 @@ public class ProjLangParser extends Parser {
 		finally {
 			// do for sure before leaving
 		}
+		return value;
+	}
+	// $ANTLR end "arithexpr"
+
+
+
+	// $ANTLR start "term"
+	// C:\\Repos\\school\\ProjLang\\ProjLang.g:60:1: term returns [Expr value] : left= factor (op= MULOP right= factor )* ;
+	public final Expr term() throws RecognitionException {
+		Expr value = null;
+
+
+		Token op=null;
+		Expr left =null;
+		Expr right =null;
+
+		try {
+			// C:\\Repos\\school\\ProjLang\\ProjLang.g:61:5: (left= factor (op= MULOP right= factor )* )
+			// C:\\Repos\\school\\ProjLang\\ProjLang.g:61:7: left= factor (op= MULOP right= factor )*
+			{
+			pushFollow(FOLLOW_factor_in_term619);
+			left=factor();
+			state._fsp--;
+
+			value = left;
+			// C:\\Repos\\school\\ProjLang\\ProjLang.g:61:43: (op= MULOP right= factor )*
+			loop6:
+			while (true) {
+				int alt6=2;
+				int LA6_0 = input.LA(1);
+				if ( (LA6_0==MULOP) ) {
+					alt6=1;
+				}
+
+				switch (alt6) {
+				case 1 :
+					// C:\\Repos\\school\\ProjLang\\ProjLang.g:61:44: op= MULOP right= factor
+					{
+					op=(Token)match(input,MULOP,FOLLOW_MULOP_in_term626); 
+					pushFollow(FOLLOW_factor_in_term630);
+					right=factor();
+					state._fsp--;
+
+					switch ((op!=null?op.getText():null)) {
+								            case "&":
+								                value = new BinExpr(left, BinOp.AND, right);
+								                break;
+								            case "/":
+								                value = new BinExpr(left, BinOp.DIV, right);
+								                break;			            
+								            case "*":
+								                value = new BinExpr(left, BinOp.TIMES, right);
+								                break;
+								        }
+					}
+					break;
+
+				default :
+					break loop6;
+				}
+			}
+
+			}
+
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+		}
+		return value;
 	}
 	// $ANTLR end "term"
 
 
 
 	// $ANTLR start "factor"
-	// C:\\Repos\\school\\ProjLang\\ProjLang.g:45:1: factor returns [Expr value] : ( NUM | TRUE | FALSE TRUE | ID );
+	// C:\\Repos\\school\\ProjLang\\ProjLang.g:73:1: factor returns [Expr value] : ( NUM | TRUE | FALSE | ID );
 	public final Expr factor() throws RecognitionException {
 		Expr value = null;
 
 
-		Token NUM1=null;
-		Token ID2=null;
+		Token NUM5=null;
+		Token ID6=null;
 
 		try {
-			// C:\\Repos\\school\\ProjLang\\ProjLang.g:46:4: ( NUM | TRUE | FALSE TRUE | ID )
-			int alt6=4;
+			// C:\\Repos\\school\\ProjLang\\ProjLang.g:74:5: ( NUM | TRUE | FALSE | ID )
+			int alt7=4;
 			switch ( input.LA(1) ) {
 			case NUM:
 				{
-				alt6=1;
+				alt7=1;
 				}
 				break;
 			case TRUE:
 				{
-				alt6=2;
+				alt7=2;
 				}
 				break;
 			case FALSE:
 				{
-				alt6=3;
+				alt7=3;
 				}
 				break;
 			case ID:
 				{
-				alt6=4;
+				alt7=4;
 				}
 				break;
 			default:
 				NoViableAltException nvae =
-					new NoViableAltException("", 6, 0, input);
+					new NoViableAltException("", 7, 0, input);
 				throw nvae;
 			}
-			switch (alt6) {
+			switch (alt7) {
 				case 1 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:46:6: NUM
+					// C:\\Repos\\school\\ProjLang\\ProjLang.g:74:7: NUM
 					{
-					NUM1=(Token)match(input,NUM,FOLLOW_NUM_in_factor552); 
-					value = new IntConst(Integer.parseInt((NUM1!=null?NUM1.getText():null)));
+					NUM5=(Token)match(input,NUM,FOLLOW_NUM_in_factor656); 
+					value = new IntConst(Integer.parseInt((NUM5!=null?NUM5.getText():null)));
 					}
 					break;
 				case 2 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:47:7: TRUE
+					// C:\\Repos\\school\\ProjLang\\ProjLang.g:75:8: TRUE
 					{
-					match(input,TRUE,FOLLOW_TRUE_in_factor562); 
-					value = new BoolConst(Boolean.parseBoolean(true));
+					match(input,TRUE,FOLLOW_TRUE_in_factor667); 
+					value = new BoolConst(true);
 					}
 					break;
 				case 3 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:48:7: FALSE TRUE
+					// C:\\Repos\\school\\ProjLang\\ProjLang.g:76:8: FALSE
 					{
-					match(input,FALSE,FOLLOW_FALSE_in_factor572); 
-					match(input,TRUE,FOLLOW_TRUE_in_factor574); 
-					value = new BoolConst(Boolean.parseBoolean(false));
+					match(input,FALSE,FOLLOW_FALSE_in_factor678); 
+					value = new BoolConst(false);
 					}
 					break;
 				case 4 :
-					// C:\\Repos\\school\\ProjLang\\ProjLang.g:49:7: ID
+					// C:\\Repos\\school\\ProjLang\\ProjLang.g:77:8: ID
 					{
-					ID2=(Token)match(input,ID,FOLLOW_ID_in_factor584); 
-					value = new VarExpr((ID2!=null?ID2.getText():null));
+					ID6=(Token)match(input,ID,FOLLOW_ID_in_factor689); 
+					value = new VarExpr((ID6!=null?ID6.getText():null));
 					}
 					break;
 
@@ -580,61 +644,50 @@ public class ProjLangParser extends Parser {
 
 
 
-	public static final BitSet FOLLOW_expr_in_input337 = new BitSet(new long[]{0x0000000004000000L});
-	public static final BitSet FOLLOW_SEMI_in_input339 = new BitSet(new long[]{0x0000000000000000L});
-	public static final BitSet FOLLOW_EOF_in_input341 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_IF_in_expr351 = new BitSet(new long[]{0x0000000050C56800L});
-	public static final BitSet FOLLOW_expr_in_expr353 = new BitSet(new long[]{0x0000000008000000L});
-	public static final BitSet FOLLOW_THEN_in_expr355 = new BitSet(new long[]{0x0000000050C56800L});
-	public static final BitSet FOLLOW_expr_in_expr357 = new BitSet(new long[]{0x0000000000000200L});
-	public static final BitSet FOLLOW_ELSE_in_expr359 = new BitSet(new long[]{0x0000000050C56800L});
-	public static final BitSet FOLLOW_expr_in_expr361 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LET_in_expr370 = new BitSet(new long[]{0x0000000020000000L});
-	public static final BitSet FOLLOW_VAL_in_expr372 = new BitSet(new long[]{0x0000000000002000L});
-	public static final BitSet FOLLOW_ID_in_expr374 = new BitSet(new long[]{0x0000000000000040L});
-	public static final BitSet FOLLOW_BIND_in_expr376 = new BitSet(new long[]{0x0000000050C56800L});
-	public static final BitSet FOLLOW_expr_in_expr378 = new BitSet(new long[]{0x0000000000008000L});
-	public static final BitSet FOLLOW_IN_in_expr380 = new BitSet(new long[]{0x0000000050C56800L});
-	public static final BitSet FOLLOW_expr_in_expr382 = new BitSet(new long[]{0x0000000000000400L});
-	public static final BitSet FOLLOW_END_in_expr384 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LET_in_expr393 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_FUN_in_expr395 = new BitSet(new long[]{0x0000000000002000L});
-	public static final BitSet FOLLOW_ID_in_expr397 = new BitSet(new long[]{0x0000000000100000L});
-	public static final BitSet FOLLOW_LPAREN_in_expr399 = new BitSet(new long[]{0x0000000000002000L});
-	public static final BitSet FOLLOW_ID_in_expr401 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_RPAREN_in_expr403 = new BitSet(new long[]{0x0000000000000040L});
-	public static final BitSet FOLLOW_BIND_in_expr405 = new BitSet(new long[]{0x0000000050C56800L});
-	public static final BitSet FOLLOW_expr_in_expr407 = new BitSet(new long[]{0x0000000000008000L});
-	public static final BitSet FOLLOW_IN_in_expr409 = new BitSet(new long[]{0x0000000050C56800L});
-	public static final BitSet FOLLOW_expr_in_expr411 = new BitSet(new long[]{0x0000000000000400L});
-	public static final BitSet FOLLOW_END_in_expr413 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_WHILE_in_expr422 = new BitSet(new long[]{0x0000000050C56800L});
-	public static final BitSet FOLLOW_expr_in_expr424 = new BitSet(new long[]{0x0000000000000100L});
-	public static final BitSet FOLLOW_DO_in_expr426 = new BitSet(new long[]{0x0000000050C56800L});
-	public static final BitSet FOLLOW_expr_in_expr428 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LCURLY_in_expr437 = new BitSet(new long[]{0x0000000050C56800L});
-	public static final BitSet FOLLOW_expr_in_expr439 = new BitSet(new long[]{0x0000000005000000L});
-	public static final BitSet FOLLOW_SEMI_in_expr442 = new BitSet(new long[]{0x0000000050C56800L});
-	public static final BitSet FOLLOW_expr_in_expr444 = new BitSet(new long[]{0x0000000005000000L});
-	public static final BitSet FOLLOW_RCURLY_in_expr449 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_NOT_in_expr458 = new BitSet(new long[]{0x0000000050C56800L});
-	public static final BitSet FOLLOW_expr_in_expr460 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ID_in_expr469 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_ASSIGN_in_expr471 = new BitSet(new long[]{0x0000000050C56800L});
-	public static final BitSet FOLLOW_expr_in_expr473 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_relexpr_in_expr482 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_arithexpr_in_relexpr491 = new BitSet(new long[]{0x0000000000020042L});
-	public static final BitSet FOLLOW_set_in_relexpr494 = new BitSet(new long[]{0x0000000010802800L});
-	public static final BitSet FOLLOW_arithexpr_in_relexpr502 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_term_in_arithexpr513 = new BitSet(new long[]{0x0000000000000012L});
-	public static final BitSet FOLLOW_ADDOP_in_arithexpr516 = new BitSet(new long[]{0x0000000010802800L});
-	public static final BitSet FOLLOW_term_in_arithexpr518 = new BitSet(new long[]{0x0000000000000012L});
-	public static final BitSet FOLLOW_factor_in_term530 = new BitSet(new long[]{0x0000000000200002L});
-	public static final BitSet FOLLOW_MULOP_in_term533 = new BitSet(new long[]{0x0000000010802800L});
-	public static final BitSet FOLLOW_factor_in_term535 = new BitSet(new long[]{0x0000000000200002L});
-	public static final BitSet FOLLOW_NUM_in_factor552 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TRUE_in_factor562 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_FALSE_in_factor572 = new BitSet(new long[]{0x0000000010000000L});
-	public static final BitSet FOLLOW_TRUE_in_factor574 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ID_in_factor584 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_expr_in_input344 = new BitSet(new long[]{0x0000000004000000L});
+	public static final BitSet FOLLOW_SEMI_in_input348 = new BitSet(new long[]{0x0000000000000000L});
+	public static final BitSet FOLLOW_EOF_in_input350 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_IF_in_expr367 = new BitSet(new long[]{0x0000000050C56800L});
+	public static final BitSet FOLLOW_expr_in_expr371 = new BitSet(new long[]{0x0000000008000000L});
+	public static final BitSet FOLLOW_THEN_in_expr373 = new BitSet(new long[]{0x0000000050C56800L});
+	public static final BitSet FOLLOW_expr_in_expr377 = new BitSet(new long[]{0x0000000000000200L});
+	public static final BitSet FOLLOW_ELSE_in_expr379 = new BitSet(new long[]{0x0000000050C56800L});
+	public static final BitSet FOLLOW_expr_in_expr383 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LET_in_expr394 = new BitSet(new long[]{0x0000000020000000L});
+	public static final BitSet FOLLOW_VAL_in_expr396 = new BitSet(new long[]{0x0000000000002000L});
+	public static final BitSet FOLLOW_ID_in_expr398 = new BitSet(new long[]{0x0000000000000040L});
+	public static final BitSet FOLLOW_BIND_in_expr400 = new BitSet(new long[]{0x0000000050C56800L});
+	public static final BitSet FOLLOW_expr_in_expr404 = new BitSet(new long[]{0x0000000000008000L});
+	public static final BitSet FOLLOW_IN_in_expr406 = new BitSet(new long[]{0x0000000050C56800L});
+	public static final BitSet FOLLOW_expr_in_expr410 = new BitSet(new long[]{0x0000000000000400L});
+	public static final BitSet FOLLOW_END_in_expr412 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_WHILE_in_expr429 = new BitSet(new long[]{0x0000000050C56800L});
+	public static final BitSet FOLLOW_expr_in_expr433 = new BitSet(new long[]{0x0000000000000100L});
+	public static final BitSet FOLLOW_DO_in_expr435 = new BitSet(new long[]{0x0000000050C56800L});
+	public static final BitSet FOLLOW_expr_in_expr439 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LCURLY_in_expr450 = new BitSet(new long[]{0x0000000050C56800L});
+	public static final BitSet FOLLOW_expr_in_expr454 = new BitSet(new long[]{0x0000000005000000L});
+	public static final BitSet FOLLOW_SEMI_in_expr459 = new BitSet(new long[]{0x0000000050C56800L});
+	public static final BitSet FOLLOW_expr_in_expr463 = new BitSet(new long[]{0x0000000005000000L});
+	public static final BitSet FOLLOW_RCURLY_in_expr469 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NOT_in_expr478 = new BitSet(new long[]{0x0000000050C56800L});
+	public static final BitSet FOLLOW_expr_in_expr482 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ID_in_expr493 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_ASSIGN_in_expr495 = new BitSet(new long[]{0x0000000050C56800L});
+	public static final BitSet FOLLOW_expr_in_expr499 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_relexpr_in_expr510 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_arithexpr_in_relexpr530 = new BitSet(new long[]{0x0000000000020042L});
+	public static final BitSet FOLLOW_LESS_in_relexpr538 = new BitSet(new long[]{0x0000000010802800L});
+	public static final BitSet FOLLOW_BIND_in_relexpr544 = new BitSet(new long[]{0x0000000010802800L});
+	public static final BitSet FOLLOW_arithexpr_in_relexpr549 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_term_in_arithexpr577 = new BitSet(new long[]{0x0000000000000012L});
+	public static final BitSet FOLLOW_ADDOP_in_arithexpr584 = new BitSet(new long[]{0x0000000010802800L});
+	public static final BitSet FOLLOW_term_in_arithexpr588 = new BitSet(new long[]{0x0000000000000012L});
+	public static final BitSet FOLLOW_factor_in_term619 = new BitSet(new long[]{0x0000000000200002L});
+	public static final BitSet FOLLOW_MULOP_in_term626 = new BitSet(new long[]{0x0000000010802800L});
+	public static final BitSet FOLLOW_factor_in_term630 = new BitSet(new long[]{0x0000000000200002L});
+	public static final BitSet FOLLOW_NUM_in_factor656 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TRUE_in_factor667 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_FALSE_in_factor678 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ID_in_factor689 = new BitSet(new long[]{0x0000000000000002L});
 }

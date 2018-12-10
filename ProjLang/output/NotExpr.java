@@ -1,7 +1,7 @@
-public class NotExp extends Expr {
+public class NotExpr extends Expr {
   public final Expr expression;
 
-  public NotExp(Expr expression) {
+  public NotExpr(Expr expression) {
     this.expression = expression;
   }
 
