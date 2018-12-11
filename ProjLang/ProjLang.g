@@ -36,7 +36,7 @@ input		returns [Expr value]
 expr			returns [Expr value]
 				:	IF condition=expr THEN trueExpr=expr ELSE falseExpr=expr {$value = new IfExpr($condition.value, $trueExpr.value, $falseExpr.value);}
 					| LET VAL ID BIND binding=expr IN in=expr END {$value = new LetValExpr($ID.text, $binding.value, $in.value);}
-					//| LET FUN ID LPAREN ID RPAREN BIND expr IN expr END
+					| LET FUN ID LPAREN ID RPAREN BIND expr IN expr END
 					| WHILE condition=expr DO action=expr {$value = new WhileExpr($condition.value, $action.value);}
 					| LCURLY first=expr {$value = $first.value;} (SEMI second=expr {$value = new SeqExpr($value, $second.value);})* RCURLY
 					| NOT e=expr {$value = new NotExpr($e.value);}
@@ -79,7 +79,6 @@ factor		returns [Expr value]
 				:	NUM {$value = new IntConst(Integer.parseInt($NUM.text));}
 					| TRUE {$value = new BoolConst(true);}
 					| FALSE {$value = new BoolConst(false);}
-					| ID {$value = new VarExpr($ID.text);}
-					;
-					//| ID LPAREN expr RPAREN
-					//| LPAREN expr RPAREN;
+					| ID {$value = new VarExpr($ID.text);}					
+					| ID LPAREN expr RPAREN
+					| LPAREN expr {$value = $expr.value;} RPAREN;
